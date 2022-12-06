@@ -1,4 +1,4 @@
-package com.example.LF8.controllers;
+package LF8.application.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

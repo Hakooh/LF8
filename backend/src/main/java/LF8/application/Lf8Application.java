@@ -1,4 +1,4 @@
-package com.example.LF8;
+package LF8.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
