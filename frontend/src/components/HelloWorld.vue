@@ -12,10 +12,10 @@ export default {
   },
   mounted() {
     fetch("/api/messages/hello")
-      .then((response) => response.text())
-      .then((data) => {
+        .then((response) => response.text())
+        .then((data) => {
           this.msg = data;
-      });
+        });
   }
 }
 </script>
