@@ -17,11 +17,16 @@ public class DemographicInformation {
     private String city;
 
     @Builder
-    public DemographicInformation(String gender, LocalDate dayOfBirth, String address, String city) {
+    public DemographicInformation(
+            String gender,
+            LocalDate dayOfBirth,
+            String address,
+            String city) {
         this.gender = gender;
         this.dayOfBirth = dayOfBirth;
         this.address = address;
         this.city = city;
+        validateFields();
     }
 
     private void validateFields() {
@@ -30,6 +35,5 @@ public class DemographicInformation {
         assertThat(address).as(Fields.address).isNotEmpty();
         assertThat(city).as(Fields.city).isNotEmpty();
         assertThat(city).as(Fields.city).isNotNull();
-
     }
 }

@@ -1,19 +1,23 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <img src="./assets/logo.png" alt="VueLogo">
+  <div>
+    <p>
+      If Element Plus is successfully added to this project, you'll see an
+      <code v-text="'<el-button>'"></code>
+      below
+    </p>
+    <el-button type="primary">el-button</el-button>
+  </div>
+  <Homepage/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import homepage from './components/example/Homepage'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    homepage
   }
 }
 </script>
-
-<style>
-
-</style>
