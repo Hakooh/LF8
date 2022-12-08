@@ -1,8 +1,6 @@
 package LF8.application.persistence;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -12,9 +10,11 @@ import java.time.LocalDate;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Entity
+@Table(name = "RATINGS")
 public class RatingEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
@@ -23,9 +23,9 @@ public class RatingEntity {
     @Column
     private int rating;
 
-    @Column
-    private Long userId;
+    @OneToOne
+    private UserEntity user;
 
-    @Column
+    @Temporal(TemporalType.DATE)
     private LocalDate commentDate;
 }

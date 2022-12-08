@@ -1,4 +1,4 @@
-package LF8.application.controller;
+package LF8.application.controllers;
 
 
 class MessageControllerUnitTest {

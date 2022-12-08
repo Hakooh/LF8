@@ -1,4 +1,4 @@
-package LF8.application.model;
+package LF8.application.models;
 
 import lombok.Builder;
 import lombok.Data;

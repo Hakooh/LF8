@@ -1,4 +1,4 @@
-package LF8.application.model;
+package LF8.application.models;
 
 import lombok.Builder;
 import lombok.Data;
@@ -10,6 +10,8 @@ import java.util.Set;
 @Data
 @FieldNameConstants
 public class User {
+
+    private Long id;
     private String eMail;
     private String password;
     private LocalDate lastLogin;
@@ -20,6 +22,7 @@ public class User {
 
     @Builder
     public User(
+            Long id,
             String eMail,
             String password,
             LocalDate lastLogin,
@@ -27,6 +30,7 @@ public class User {
             String lastName,
             Set<Rating> userRatings,
             DemographicInformation demographicInformation) {
+        this.id = id;
         this.eMail = eMail;
         this.password = password;
         this.lastLogin = lastLogin;
@@ -37,6 +41,7 @@ public class User {
         validateFields();
     }
     private void validateFields() {
+        assertThat(id).as(Fields.id).isNotNull();
         assertThat(eMail).as(Fields.eMail).isNotNull();
         assertThat(eMail).as(Fields.eMail).isNotEmpty();
         assertThat(password).as(Fields.eMail).isNotNull();

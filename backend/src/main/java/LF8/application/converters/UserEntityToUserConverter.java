@@ -1,6 +1,6 @@
-package LF8.application.converter;
+package LF8.application.converters;
 
-import LF8.application.model.User;
+import LF8.application.models.User;
 import LF8.application.persistence.UserEntity;
 
 // TODO: Set<Rating> userRatings & DemographicInformation nachschauen (User.java)

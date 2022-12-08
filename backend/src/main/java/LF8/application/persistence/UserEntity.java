@@ -1,8 +1,6 @@
 package LF8.application.persistence;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -12,9 +10,10 @@ import java.time.LocalDate;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Table(name = "USERS")
 public class UserEntity {
     @Id
-    @Column
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
@@ -23,7 +22,7 @@ public class UserEntity {
     @Column
     private String lastName;
 
-    @Column
+    @Temporal(TemporalType.DATE)
     private LocalDate dayOfBirth;
 
     @Column
@@ -35,6 +34,6 @@ public class UserEntity {
     @Column
     private String password;
 
-    @Column
+    @Temporal(TemporalType.DATE)
     private LocalDate lastLogin;
 }

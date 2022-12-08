@@ -1,4 +1,4 @@
-package LF8.application.model;
+package LF8.application.models;
 
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +24,7 @@ public class Rating {
         this.rating = rating;
         this.userId = userId;
         this.commentDate = commentDate;
+        validateFields();
     }
     private void validateFields() {
         assertThat(id).as(Fields.id).isNotNull();

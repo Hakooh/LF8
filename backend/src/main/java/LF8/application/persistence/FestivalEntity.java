@@ -1,9 +1,6 @@
 package LF8.application.persistence;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -14,8 +11,11 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@Table(name ="FESTIVALS")
 public class FestivalEntity {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
@@ -27,13 +27,13 @@ public class FestivalEntity {
     @Column
     private String address;
 
-    @Column
+    @Temporal(TemporalType.DATE)
     private LocalDate startDate;
 
-    @Column
+    @Temporal(TemporalType.DATE)
     private LocalDate endDate;
 
-    @OneToMany
+    @ManyToMany
     private Set<ShopEntity> shops;
 
 }
