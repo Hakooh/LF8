@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 configFileProvider([configFile(fileId: '34e418b0-dfbd-4183-ad56-5cf706efdad2', targetLocation: './backend/src/main/resources/application.properties')]) {
-                    sh'mvn spring-boot:run'
+                    sh'mvn clean install'
                 }
             }
         }
