@@ -1,23 +1,23 @@
 <template>
-  <img src="./assets/logo.png" alt="VueLogo">
-  <div>
-    <p>
-      If Element Plus is successfully added to this project, you'll see an
-      <code v-text="'<el-button>'"></code>
-      below
-    </p>
-    <el-button type="primary">el-button</el-button>
-  </div>
-  <Homepage/>
+  <el-config-provider namespace="ep">
+    <BaseHeader />
+    <div style="display: flex">
+      <BaseSide />
+      <div>
+        <img alt="Vue logo" class="element-plus-logo" src="./assets/logo.png" />
+        <HelloWorld msg="Hello Vue 3.0 + Element Plus + Vite" />
+      </div>
+    </div>
+  </el-config-provider>
 </template>
 
-<script>
-import homepage from './components/example/Homepage'
-
-export default {
-  name: 'App',
-  components: {
-    homepage
-  }
+<style>
+#app {
+  text-align: center;
+  color: var(--ep-text-color-primary);
 }
-</script>
+
+.element-plus-logo {
+  width: 50%;
+}
+</style>
