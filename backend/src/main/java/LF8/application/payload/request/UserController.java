@@ -1,4 +1,4 @@
-package LF8.application.controllers;
+package LF8.application.payload.request;
 
 import LF8.application.persistence.UserEntity;
 import LF8.application.persistence.UserEntityRepository;
@@ -33,8 +33,9 @@ public class UserController {
             return existingUser.get();
         }
     }
-    
-    public UserEntity findUser(@PathVariable String mail) {
+
+    public UserEntity findUser(String mail) {
         return userEntityRepository.findByMail(mail).get();
     }
+
 }

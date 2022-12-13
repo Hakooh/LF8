@@ -10,6 +10,7 @@ import java.time.LocalDate;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@RequiredArgsConstructor(access = AccessLevel.PUBLIC)
 @Table(name = "USERS")
 public class UserEntity {
     @Id
@@ -17,9 +18,11 @@ public class UserEntity {
     private Long id;
 
     @Column
+    @NonNull
     private String firstName;
 
     @Column
+    @NonNull
     private String lastName;
 
     @Temporal(TemporalType.DATE)
@@ -29,6 +32,7 @@ public class UserEntity {
     private String gender;
 
     @Column(unique=true)
+    @NonNull
     private String eMail;
 
     @Column
