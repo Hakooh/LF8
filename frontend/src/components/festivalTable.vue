@@ -1,11 +1,11 @@
 <template>
-  <div>{{ posts[0] }}</div>
+  <div>{{ yolo }}</div>
 </template>
 
 <script>
 import axios from 'axios'
 
-export default{
+export default {
   data() {
     return {
       posts: []

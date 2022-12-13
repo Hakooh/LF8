@@ -17,9 +17,12 @@ declare module '@vue/runtime-core' {
     ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElTag: typeof import('element-plus/es')['ElTag']
+    FestivalTable: typeof import('./components/festivalTable.vue')['default']
+    Funktioniert: typeof import('./components/funktioniert.vue')['default']
     HelloWorld: typeof import('./components/HelloWorld.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TestSite: typeof import('./components/testSite.vue')['default']
   }
 }
 
