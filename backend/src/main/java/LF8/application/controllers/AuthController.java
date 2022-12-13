@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import LF8.application.payload.request.LoginRequest;
+import LF8.application.payload.request.SignupRequest;
 import LF8.application.payload.response.JwtResponse;
 import LF8.application.payload.response.MessageResponse;
 import LF8.application.persistence.UserEntity;
