@@ -1,19 +1,13 @@
 package LF8.application.payload.request;
 
-import lombok.NonNull;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class SignupRequest {
-
-    public String getEmail() {
-        return null;
-    }
-
-    public @NonNull String getUsername() {
-        return null;
-    }
-
-    public String getPassword() {
-        return null;
-    }
+ private String eMail;
+ private String username;
+ private String password;
 
 }

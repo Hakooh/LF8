@@ -1,6 +1,7 @@
 package LF8.application.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,11 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import LF8.application.payload.request.LoginRequest;
 import LF8.application.payload.request.SignupRequest;
 import LF8.application.payload.response.JwtResponse;
-import LF8.application.payload.response.MessageResponse;
 import LF8.application.persistence.UserEntity;
 import LF8.application.persistence.UserEntityRepository;
 import LF8.application.security.jwt.JwtUtils;
-import LF8.application.security.services.UserDetailsImpl;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -43,33 +42,28 @@ public class AuthController {
     public ResponseEntity<?> authenticateUser(@Validated @RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+                new UsernamePasswordAuthenticationToken(loginRequest.getEMail(), loginRequest.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = jwtUtils.generateJwtToken(authentication);
+        String jwt = jwtUtils.generateJwtToken(authentication);;
 
-        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-
-        return ResponseEntity.ok(new JwtResponse(jwt,
-                userDetails.getId(),
-                userDetails.getEmail()));
+        return ResponseEntity.ok(new JwtResponse(jwt));
     }
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@Validated @RequestBody SignupRequest signUpRequest) {
-        if (userEntityRepository.existsByeMail(signUpRequest.getEmail())) {
-            return ResponseEntity
-                    .badRequest()
-                    .body(new MessageResponse("Error: Email is already in use!"));
+        if (userEntityRepository.existsByeMail(signUpRequest.getEMail())) {
+            return new ResponseEntity<String>("Email is already taken!",
+                    HttpStatus.BAD_REQUEST);
         }
 
         // Create new user's account
         UserEntity user = new UserEntity(signUpRequest.getUsername(),
-                signUpRequest.getEmail(),
+                signUpRequest.getEMail(),
                 encoder.encode(signUpRequest.getPassword()));
 
         userEntityRepository.save(user);
 
-        return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+        return ResponseEntity.ok().body("User registered successfully!");
     }
 }
