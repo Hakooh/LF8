@@ -2,10 +2,10 @@ package LF8.application.controllers;
 
 import LF8.application.persistence.UserEntity;
 import LF8.application.persistence.UserEntityRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
@@ -17,6 +17,22 @@ public class UserController {
 
     @GetMapping("/all")
     public List<UserEntity> findAllUser() {
-        return this.userEntityRepository.findAll();
+        return userEntityRepository.findAll();
+    }
+
+    @DeleteMapping("/delete/id/{id}")
+    public void deleteUser(@PathVariable Long id) {userEntityRepository.deleteById(id);}
+
+    @PostMapping()
+    public UserEntity addUser(@RequestBody UserEntity userEntity) {
+        Optional<UserEntity> existingUser = userEntityRepository
+                .findByFirstNameAndLastName(userEntity.getFirstName(), userEntity.getLastName());
+        if (existingUser.isEmpty()) {
+            return userEntityRepository.save(userEntity);
+        } else {
+            return existingUser.get();
+        }
+
+
     }
 }
