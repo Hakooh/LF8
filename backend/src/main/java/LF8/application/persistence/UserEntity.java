@@ -28,7 +28,7 @@ public class UserEntity {
     @Column
     private String gender;
 
-    @Column
+    @Column(unique=true)
     private String eMail;
 
     @Column
