@@ -34,8 +34,8 @@ public class UserController {
         }
     }
 
-    public UserEntity findUser(String mail) {
-        return userEntityRepository.findByMail(mail).get();
+    public UserEntity findByeMail(String eMail) {
+        return userEntityRepository.findByeMail(eMail).get();
     }
 
 }
