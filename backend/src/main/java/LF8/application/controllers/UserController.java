@@ -32,7 +32,9 @@ public class UserController {
         } else {
             return existingUser.get();
         }
-
-
+    }
+    
+    public UserEntity findUser(@PathVariable String mail) {
+        return userEntityRepository.findByMail(mail).get();
     }
 }
