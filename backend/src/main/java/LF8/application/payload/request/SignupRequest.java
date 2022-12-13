@@ -1,4 +1,4 @@
-package LF8.application.controllers;
+package LF8.application.payload.request;
 
 import lombok.NonNull;
 
@@ -12,7 +12,7 @@ public class SignupRequest {
         return null;
     }
 
-    public CharSequence getPassword() {
+    public String getPassword() {
         return null;
     }
 

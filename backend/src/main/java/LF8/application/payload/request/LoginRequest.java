@@ -2,11 +2,11 @@ package LF8.application.payload.request;
 
 public class LoginRequest {
 
-    public Object getUsername() {
+    public String getUsername() {
         return null;
     }
 
-    public Object getPassword() {
+    public String getPassword() {
         return null;
     }
 

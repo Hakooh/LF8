@@ -1,4 +1,4 @@
-package LF8.application.payload.request;
+package LF8.application.controllers;
 
 import LF8.application.persistence.UserEntity;
 import LF8.application.persistence.UserEntityRepository;
