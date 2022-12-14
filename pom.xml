@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>lf8.application</groupId>
-	<artifactId>LF8</artifactId>
+	<artifactId>LF8-parent</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>LF8</name>
+	<name>LF8-Parent</name>
 	<description>LF8 Application</description>
 	<modules>
 		<module>backend</module>
@@ -22,18 +22,6 @@
 <!--	<node.version>v12.18.3</node.version>
 		<npm.version>6.14.6</npm.version> -->
 	</properties>
-	<dependencies>
-		<dependency>
-			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-registry-prometheus</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
-		</dependency>
-	</dependencies>
 
 	<build>
 		<plugins>
