@@ -13,7 +13,7 @@ import java.util.Set;
 @Table(name = "SHOPS")
 public class ShopEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column

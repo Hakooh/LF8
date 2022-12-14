@@ -14,14 +14,13 @@ import java.time.LocalDate;
 @Table(name = "USERS")
 public class UserEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
     private String firstName;
 
     @Column
-    @NonNull
     private String lastName;
 
     @Temporal(TemporalType.DATE)
@@ -35,6 +34,7 @@ public class UserEntity {
     private String eMail;
 
     @Column
+    @NonNull
     private String password;
 
     @Temporal(TemporalType.DATE)
