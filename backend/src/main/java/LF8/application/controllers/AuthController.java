@@ -1,5 +1,6 @@
 package LF8.application.controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,11 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import LF8.application.payload.request.LoginRequest;
 import LF8.application.payload.request.SignupRequest;
@@ -26,6 +23,7 @@ import LF8.application.security.jwt.JwtUtils;
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
+
     @Autowired
     AuthenticationManager authenticationManager;
 
@@ -42,27 +40,29 @@ public class AuthController {
     public ResponseEntity<?> authenticateUser(@Validated @RequestBody LoginRequest loginRequest) {
 
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getEMail(), loginRequest.getPassword()));
+                new UsernamePasswordAuthenticationToken(
+                        loginRequest.getEMail(),
+                        loginRequest.getPassword()
+                )
+        );
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = jwtUtils.generateJwtToken(authentication);;
 
+        String jwt = jwtUtils.generateJwtToken(authentication);
         return ResponseEntity.ok(new JwtResponse(jwt));
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<?> registerUser(@Validated @RequestBody SignupRequest signUpRequest) {
+    public ResponseEntity<String> registerUser(@Validated @RequestBody SignupRequest signUpRequest) {
         if (userEntityRepository.existsByeMail(signUpRequest.getEMail())) {
-            return new ResponseEntity<String>("Email is already taken!",
+            return new ResponseEntity<String>("Fail -> Email is already in use!",
                     HttpStatus.BAD_REQUEST);
         }
 
-        // Create new user's account
-        UserEntity user = new UserEntity(signUpRequest.getUsername(),
-                signUpRequest.getEMail(),
-                encoder.encode(signUpRequest.getPassword()));
+        // Creating user's account
+        UserEntity userEntity = new UserEntity( signUpRequest.getEMail(), encoder.encode(signUpRequest.getPassword()));
 
-        userEntityRepository.save(user);
+        userEntityRepository.save(userEntity);
 
         return ResponseEntity.ok().body("User registered successfully!");
     }

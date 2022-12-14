@@ -18,7 +18,6 @@ public class UserEntity {
     private Long id;
 
     @Column
-    @NonNull
     private String firstName;
 
     @Column
