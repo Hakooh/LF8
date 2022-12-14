@@ -55,7 +55,7 @@ public class AuthController {
     @PostMapping("/signup")
     public ResponseEntity<String> registerUser(@Validated @RequestBody SignupRequest signUpRequest) {
         if (userEntityRepository.existsByeMail(signUpRequest.getEMail())) {
-            return new ResponseEntity<String>("Fail -> Email is already in use!",
+            return new ResponseEntity<String>("Email is already in use!",
                     HttpStatus.BAD_REQUEST);
         }
 
