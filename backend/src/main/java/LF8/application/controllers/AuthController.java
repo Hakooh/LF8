@@ -38,7 +38,10 @@ public class AuthController {
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Validated @RequestBody LoginRequest loginRequest) {
-
+        if (!userEntityRepository.existsByeMail(loginRequest.getEMail())) {
+            return new ResponseEntity<String>("No account with this email exists.",
+                    HttpStatus.BAD_REQUEST);
+        }
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         loginRequest.getEMail(),
@@ -55,12 +58,18 @@ public class AuthController {
     @PostMapping("/signup")
     public ResponseEntity<String> registerUser(@Validated @RequestBody SignupRequest signUpRequest) {
         if (userEntityRepository.existsByeMail(signUpRequest.getEMail())) {
-            return new ResponseEntity<String>("Email is already in use!",
+            return new ResponseEntity<String>("Email is already in use.",
                     HttpStatus.BAD_REQUEST);
         }
 
         // Creating user's account
-        UserEntity userEntity = new UserEntity( signUpRequest.getEMail(), encoder.encode(signUpRequest.getPassword()));
+        UserEntity userEntity = new UserEntity(
+            signUpRequest.getFirstName(),
+            signUpRequest.getLastName(),
+            signUpRequest.getDateOfBirth(),
+            signUpRequest.getGender(),
+            signUpRequest.getEMail(),
+            encoder.encode(signUpRequest.getPassword()));
 
         userEntityRepository.save(userEntity);
 

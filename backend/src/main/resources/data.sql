@@ -8,11 +8,11 @@ INSERT INTO festivals (address, end_date, festival_place, name, start_date) valu
 INSERT INTO shops(id, name, type) VALUES (1, 'Meyers Mandelbude', 'FOODSTORE');
 
 --User inserts
-insert into users ( day_of_birth, e_mail, first_name, gender, last_login, last_name, password) values ( '1986-04-20', 'geilertyp@hotmail.de', 'Dieter', 'Male', '2022-08-12', 'Detlefs', 'password');
-insert into users ( day_of_birth, e_mail, first_name, gender, last_login, last_name, password) values ( '1985-03-10', 'test@hotmail.de', 'Gerda', 'Female', '2022-08-06', 'Gunde', 'password');
-insert into users ( day_of_birth, e_mail, first_name, gender, last_login, last_name, password) values ( '1984-06-22', 'mega@hotmail.de', 'Laura', 'Female', '2022-05-18', 'Schmidt', 'password');
-insert into users ( day_of_birth, e_mail, first_name, gender, last_login, last_name, password) values ( '1982-01-05', 'super@hotmail.de', 'Susanne', 'Female', '2022-07-10', 'Sunder', 'password');
-insert into users ( day_of_birth, e_mail, first_name, gender, last_login, last_name, password) values ( '1980-10-10', 'lolo@hotmail.de', 'Klaus', 'Male', '2022-09-03', 'Kong', 'password');
+insert into users ( day_of_birth, e_mail, first_name, gender, last_login, last_name, password) values ( '1986-04-20', 'geilertyp@hotmail.de', 'Dieter', 'Male', '2022-08-12', 'Detlefs', '$2a$10$Ht0IWia5s1MXdYekb1H9helRh.6S/9.uNseZN7/wph3pT2o9trixi');
+insert into users ( day_of_birth, e_mail, first_name, gender, last_login, last_name, password) values ( '1985-03-10', 'test@hotmail.de', 'Gerda', 'Female', '2022-08-06', 'Gunde', '$2a$10$Ht0IWia5s1MXdYekb1H9helRh.6S/9.uNseZN7/wph3pT2o9trixi');
+insert into users ( day_of_birth, e_mail, first_name, gender, last_login, last_name, password) values ( '1984-06-22', 'mega@hotmail.de', 'Laura', 'Female', '2022-05-18', 'Schmidt', '$2a$10$Ht0IWia5s1MXdYekb1H9helRh.6S/9.uNseZN7/wph3pT2o9trixi');
+insert into users ( day_of_birth, e_mail, first_name, gender, last_login, last_name, password) values ( '1982-01-05', 'super@hotmail.de', 'Susanne', 'Female', '2022-07-10', 'Sunder', '$2a$10$Ht0IWia5s1MXdYekb1H9helRh.6S/9.uNseZN7/wph3pT2o9trixi');
+insert into users ( day_of_birth, e_mail, first_name, gender, last_login, last_name, password) values ( '1980-10-10', 'lolo@hotmail.de', 'Klaus', 'Male', '2022-09-03', 'Kong', '$2a$10$Ht0IWia5s1MXdYekb1H9helRh.6S/9.uNseZN7/wph3pT2o9trixi');
 
 --Rating inserts
 INSERT INTO ratings( comment, comment_date, rating, user_id) VALUES ('Freshe Sache', '2022-08-12', 4.5, 1);

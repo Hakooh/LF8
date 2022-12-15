@@ -18,15 +18,19 @@ public class UserEntity {
     private Long id;
 
     @Column
+    @NonNull
     private String firstName;
 
     @Column
+    @NonNull
     private String lastName;
 
     @Temporal(TemporalType.DATE)
+    @NonNull
     private LocalDate dayOfBirth;
 
     @Column
+    @NonNull
     private String gender;
 
     @Column(unique=true)
