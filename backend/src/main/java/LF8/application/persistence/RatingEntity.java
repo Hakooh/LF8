@@ -4,28 +4,39 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Data
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Entity
-@Table(name = "RATINGS")
+@Table(name = "RATING")
 public class RatingEntity {
 
+    private static final String GENERATOR = "ratingEntity_id.generator";
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = GENERATOR)
+    @SequenceGenerator(name = GENERATOR, sequenceName = "ratingEntity_seq", allocationSize = 1)
     private Long id;
 
-    @Column
+    @Column(name="commentary")
     private String comment;
 
-    @Column
-    private int rating;
+    @Column(name="score")
+    private Double rating;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private UserEntity user;
 
     @Temporal(TemporalType.DATE)
+    @Column(name="date_of_comment")
     private LocalDate commentDate;
+
+    @ManyToOne
+    @JoinColumn(name = "shop_id")
+    private ShopEntity shop;
 }
