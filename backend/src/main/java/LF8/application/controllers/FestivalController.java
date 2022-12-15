@@ -9,6 +9,7 @@ import java.util.List;
 @CrossOrigin(origins = "localhost:3000")
 @RestController
 @RequestMapping("/api/festival")
+@CrossOrigin(origins = "http://localhost:3000")
 public class FestivalController {
 
     private final FestivalEntityRepository festivalEntityRepository;
@@ -27,4 +28,8 @@ public class FestivalController {
         festivalEntityRepository.deleteById(id);
     }
 
+    @GetMapping("/Id/{id}")
+    public Optional<FestivalEntity> findById(@PathVariable Long id) {
+        return festivalEntityRepository.findById(id);
+    }
 }

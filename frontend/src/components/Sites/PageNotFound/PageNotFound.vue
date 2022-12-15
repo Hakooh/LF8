@@ -1,14 +1,16 @@
 <template>
-  <div>{{ posts[0] }}</div>
+  <div> {{ msg }}</div>
+  <router-view/>
 </template>
 
 <script>
 import axios from 'axios'
 
-export default{
+export default {
   data() {
     return {
-      posts: []
+      posts: [],
+      msg: "pageNotFound"
     }
   },
   mounted() {

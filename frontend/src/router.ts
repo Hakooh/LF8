@@ -1,17 +1,33 @@
 import { createWebHistory, createRouter} from "vue-router";
-import HelloWorld from "~/components/HelloWorld.vue";
-import festivalTable from "~/components/festivalTable.vue";
+import HelloWorld from "~/components/Sites/Home/Home.vue";
+import festivalTable from "~/components/Sites/FestivalTable/Festivals.vue";
+import pageNotFound from "~/components/Sites/PageNotFound/PageNotFound.vue";
+import FestivalDetails from "~/components/Sites/FestivalDetails/FestivalDetails.vue";
 
 const routes = [
     {
         path:'/',
         name:'Home',
-        component: HelloWorld
+        component: HelloWorld,
+        props: true
     },
     {
-        path:'/festivalTable',
+        path:'/festivals',
         name:'festivalTable',
-        component: festivalTable
+        component: festivalTable,
+        props: true
+    },
+    {
+      path:'/festivals/:id',
+      name:'festival_details',
+      component: FestivalDetails,
+        props: true
+    },
+    {
+        path:'/:pathMatch(.*)*',
+        name:'pageNotFound',
+        component: pageNotFound,
+        props: true
     }
 ]
 

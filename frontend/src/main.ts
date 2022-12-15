@@ -1,6 +1,5 @@
 import { createApp } from "vue";
 import App from "./App.vue";
-import {createRouter, createWebHashHistory} from "vue-router"
 
 // import "~/styles/element/index.scss";
 
@@ -16,7 +15,6 @@ import 'uno.css'
 // If you want to use ElMessage, import it.
 import "element-plus/theme-chalk/src/message.scss"
 import {ElementPlus} from "@element-plus/icons-vue";
-import vue from "@vitejs/plugin-vue";
 import router from "~/router";
 
 
