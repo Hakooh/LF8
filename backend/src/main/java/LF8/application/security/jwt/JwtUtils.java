@@ -38,7 +38,7 @@ public class JwtUtils {
                 .compact();
     }
 
-    public String getUserNameFromJwtToken(String token) {
+    public String getEMailFromJwtToken(String token) {
         Key secret = Keys.hmacShaKeyFor(jwtSecret.getBytes());
         return Jwts.parserBuilder()
                 .setSigningKey(secret)

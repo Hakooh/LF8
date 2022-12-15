@@ -19,7 +19,7 @@ import LF8.application.persistence.UserEntity;
 import LF8.application.persistence.UserEntityRepository;
 import LF8.application.security.jwt.JwtUtils;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "localhost:3000")
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
