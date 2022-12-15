@@ -9,7 +9,6 @@ declare module '@vue/runtime-core' {
     BaseSide: typeof import('./components/layout/BaseSide.vue')['default']
     CommentItem: typeof import('./components/Comments/CommentItem.vue')['default']
     CommentManager: typeof import('./components/Comments/CommentManager.vue')['default']
-    Comments: typeof import('./components/Comments/Comments.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
