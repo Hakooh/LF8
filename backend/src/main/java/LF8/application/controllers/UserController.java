@@ -13,7 +13,9 @@ public class UserController {
 
     private final UserEntityRepository userEntityRepository;
 
-    public UserController(UserEntityRepository userEntityRepository) {this.userEntityRepository = userEntityRepository;}
+    public UserController(UserEntityRepository userEntityRepository) {
+        this.userEntityRepository = userEntityRepository;
+    }
 
     @GetMapping("/all")
     public List<UserEntity> findAllUser() {
@@ -22,7 +24,8 @@ public class UserController {
 
     @GetMapping("/id/{id}")
     public UserEntity findUserById(@PathVariable Long id) {
-        Optional<UserEntity> userEntityOptional = userEntityRepository.findById(id);
+        Optional<UserEntity> userEntityOptional = userEntityRepository
+                .findById(id);
         if (userEntityOptional.isEmpty()) {
             return null;
         } else {
@@ -32,7 +35,8 @@ public class UserController {
 
     @GetMapping("/firstname/{firstName}/lastname/{lastName}")
     public UserEntity findUserByFullName(@PathVariable String firstName, @PathVariable String lastName) {
-        Optional<UserEntity> userEntityOptional = userEntityRepository.findByFirstNameAndLastName(firstName, lastName);
+        Optional<UserEntity> userEntityOptional = userEntityRepository
+                .findByFirstNameAndLastName(firstName, lastName);
         if (userEntityOptional.isEmpty()) {
             return null;
         } else {
@@ -42,7 +46,8 @@ public class UserController {
 
     @GetMapping("/email/{eMail}")
     public UserEntity findUserByeMail(@PathVariable String eMail) {
-        Optional<UserEntity> userEntityOptional = userEntityRepository.findByeMail(eMail);
+        Optional<UserEntity> userEntityOptional = userEntityRepository
+                .findByeMail(eMail);
         if (userEntityOptional.isEmpty()) {
             return null;
         } else {
@@ -51,7 +56,9 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/id/{id}")
-    public void deleteUser(@PathVariable Long id) {userEntityRepository.deleteById(id);}
+    public void deleteUser(@PathVariable Long id) {
+        userEntityRepository.deleteById(id);
+    }
 
     @PostMapping("/add")
     public UserEntity addUser(@RequestBody UserEntity userEntity) {
@@ -63,4 +70,5 @@ public class UserController {
             return existingUser.get();
         }
 
+    }
 }
