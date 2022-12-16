@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="alexander.vojtenko"  id="1">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="festivalEntity_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="festivalEntity_seq" startValue="2"/>
+    </changeSet>
+
+    <changeSet author="alexander.vojtenko" id="2" >
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="FESTIVAL"/>
+            </not>
+        </preConditions>
+        <createTable tableName="FESTIVAL">
+            <column  name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="pk_festival"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="place" type="VARCHAR(255)"/>
+            <column name="address" type="VARCHAR(255)"/>
+            <column name="postal_code" type="VARCHAR(255)"/>
+            <column name="start_date" type="DATE"/>
+            <column name="end_date" type="DATE"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="alexander.vojtenko" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <tableIsEmpty tableName="FESTIVAL"/>
+        </preConditions>
+        <loadUpdateData tableName="FESTIVAL"
+                        primaryKey="id"
+                        file="db/changelog/initial/festivalEntity-values.csv"
+                        separator=","/>
+    </changeSet>
+</databaseChangeLog>

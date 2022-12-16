@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet author="alexander.vojtenko"  id="1">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <sequenceExists sequenceName="shopEntity_seq"/>
+            </not>
+        </preConditions>
+        <createSequence sequenceName="shopEntity_seq" startValue="2"/>
+    </changeSet>
+
+    <changeSet author="alexander.vojtenko" id="2" >
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="SHOP"/>
+            </not>
+        </preConditions>
+        <createTable tableName="SHOP">
+            <column  name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="pk_shop"/>
+            </column>
+            <column name="name"  type="VARCHAR(255)"/>
+            <column name="business_type"  type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="3" author="alexander.vojtenko" runOnChange="true">
+        <preConditions onFail="MARK_RAN">
+            <tableIsEmpty tableName="SHOP"/>
+        </preConditions>
+        <loadUpdateData tableName="SHOP"
+                        primaryKey="id"
+                        file="db/changelog/initial/shopEntity-values.csv"
+                        separator=","/>
+    </changeSet>
+</databaseChangeLog>

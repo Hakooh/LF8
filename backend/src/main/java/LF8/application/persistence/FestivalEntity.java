@@ -11,29 +11,38 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Table(name ="FESTIVALS")
+@Table(name ="FESTIVAL")
 public class FestivalEntity {
 
+    private static final String GENERATOR = "festivalEntity_id.generator";
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = GENERATOR)
+    @SequenceGenerator(name = GENERATOR, sequenceName = "festivalEntity_seq", allocationSize = 1)
     private Long id;
 
-    @Column
+    @Column(name="name")
     private String name;
 
-    @Column
+    @Column(name="place")
     private String festivalPlace;
 
-    @Column
+    @Column(name="address")
     private String address;
 
+    @Column(name="postal_code")
+    private String postalCode;
+
+    @Column(name="start_date")
     @Temporal(TemporalType.DATE)
     private LocalDate startDate;
 
+    @Column(name="end_date")
     @Temporal(TemporalType.DATE)
     private LocalDate endDate;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "festivals")
     private Set<ShopEntity> shops;
 
 }
