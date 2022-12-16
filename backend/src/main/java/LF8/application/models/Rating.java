@@ -6,7 +6,6 @@ import lombok.experimental.FieldNameConstants;
 
 import java.time.LocalDate;
 
-import static org.assertj.core.api.Assertions.assertThat;
 
 @Data
 @FieldNameConstants
@@ -24,16 +23,8 @@ public class Rating {
         this.rating = rating;
         this.userId = userId;
         this.commentDate = commentDate;
-        validateFields();
     }
-    private void validateFields() {
-        assertThat(id).as(Fields.id).isNotNull();
-        assertThat(comment).as(Fields.comment).isNotNull();
-        assertThat(rating).as(Fields.rating).isNotNull();
-        assertThat(userId).as(Fields.userId).isNotNull();
-        assertThat(commentDate).as(Fields.commentDate).isNotNull();
 
-    }
 }
 
 
