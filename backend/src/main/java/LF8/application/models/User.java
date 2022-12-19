@@ -3,7 +3,6 @@ package LF8.application.models;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.FieldNameConstants;
-import static org.assertj.core.api.Assertions.*;
 import java.time.LocalDate;
 import java.util.Set;
 
@@ -38,20 +37,5 @@ public class User {
         this.lastName = lastName;
         this.userRatings = userRatings;
         this.demographicInformation = demographicInformation;
-        validateFields();
-    }
-    private void validateFields() {
-        assertThat(id).as(Fields.id).isNotNull();
-        assertThat(eMail).as(Fields.eMail).isNotNull();
-        assertThat(eMail).as(Fields.eMail).isNotEmpty();
-        assertThat(password).as(Fields.eMail).isNotNull();
-        assertThat(password).as(Fields.eMail).isNotEmpty();
-        assertThat(lastLogin).as(Fields.lastLogin).isNotNull();
-        assertThat(firstName).as(Fields.firstName).isNotNull();
-        assertThat(firstName).as(Fields.firstName).isNotEmpty();
-        assertThat(lastName).as(Fields.lastName).isNotNull();
-        assertThat(lastName).as(Fields.lastName).isNotEmpty();
-        assertThat(demographicInformation).as(Fields.demographicInformation).isNotNull();
-
     }
 }
