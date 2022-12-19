@@ -51,7 +51,6 @@ public class AuthControllerUnitTest {
 	@Order(3)
 	public void signUpSameUserTest() throws Exception {
 		log.info("Sign up identical user");
-		log.info(SIGN_UP_BODY);
 		mvc.perform(MockMvcRequestBuilders.post("/api/auth/signup").contentType(MediaType.APPLICATION_JSON)
 				.content(SIGN_UP_BODY)).andExpect(status().isBadRequest());
 	}

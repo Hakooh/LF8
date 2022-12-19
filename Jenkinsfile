@@ -9,21 +9,15 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
                 configFileProvider([configFile(fileId: '34e418b0-dfbd-4183-ad56-5cf706efdad2', targetLocation: './backend/src/main/resources/application.properties')]) {
                     sh'mvn clean install'
                 }
             }
         }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+    }
+    post {
+        always {
+            junit '**/target/surefire-reports/*.xml'
+        }     
     }
 }
