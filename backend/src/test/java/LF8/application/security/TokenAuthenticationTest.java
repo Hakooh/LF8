@@ -1,4 +1,4 @@
-package LF8.application.controllers;
+package LF8.application.security;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
@@ -22,7 +22,7 @@ import LF8.application.security.jwt.JwtUtils;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK, classes = Lf8Application.class)
 @AutoConfigureMockMvc
-public class TokenAuthenticationServiceTest {
+public class TokenAuthenticationTest {
 
     @Autowired
     JwtUtils jwtUtils;
