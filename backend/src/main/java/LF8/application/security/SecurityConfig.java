@@ -46,11 +46,12 @@ public class SecurityConfig {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
+                .authorizeHttpRequests().requestMatchers("/api/auth/**", "/actuator/prometheus").permitAll()
                 .headers().frameOptions().sameOrigin()
                 .and()
                 .authorizeHttpRequests().requestMatchers("/api/auth/**", "/api/test/**").permitAll()
                 .and()
-                .authorizeHttpRequests().anyRequest().permitAll();
+                .authorizeHttpRequests().anyRequest().authenticated();
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
