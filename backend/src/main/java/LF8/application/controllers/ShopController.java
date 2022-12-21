@@ -5,7 +5,6 @@ import LF8.application.persistence.ShopEntityRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @CrossOrigin(origins = "localhost:3000")
 @RestController
@@ -22,16 +21,6 @@ public class ShopController {
     @GetMapping("/all")
     public List<ShopEntity> findAllShops() {
         return shopEntityRepository.findAll();
-    }
-
-    @GetMapping("/id/{id}")
-    public ShopEntity findShopById(@PathVariable Long id) {
-        Optional<ShopEntity> shopEntityOptional = shopEntityRepository.findById(id);
-        if (shopEntityOptional.isEmpty()) {
-            return null;
-        } else {
-            return shopEntityOptional.get();
-        }
     }
 
     @DeleteMapping("/delete/id/{id}")

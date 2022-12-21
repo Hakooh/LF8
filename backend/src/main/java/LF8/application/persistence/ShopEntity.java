@@ -10,32 +10,18 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Table(name = "SHOP")
+@Table(name = "SHOPS")
 public class ShopEntity {
-
-    private static final String GENERATOR = "shopEntity_id.generator";
-
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = GENERATOR)
-    @SequenceGenerator(name = GENERATOR, sequenceName = "shopEntity_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="name")
+    @Column
     private String name;
 
-    @Column(name="business_type")
+    @Column
     private String type;
 
-    @OneToMany(mappedBy = "shop")
+    @OneToMany
     private Set<RatingEntity> ratings;
-
-    @ManyToMany
-    @JoinTable(name = "festival_shop",
-            joinColumns = @JoinColumn(name="shop_id"),
-            inverseJoinColumns = @JoinColumn(name = "festival_id")
-    )
-    private Set<FestivalEntity> festivals;
-
-
 }
