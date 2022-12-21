@@ -2,6 +2,8 @@ package LF8.application.controllers;
 
 import LF8.application.persistence.FestivalEntity;
 import LF8.application.persistence.FestivalEntityRepository;
+import io.micrometer.core.annotation.Counted;
+import io.micrometer.core.annotation.Timed;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,6 +20,8 @@ public class FestivalController {
         this.festivalEntityRepository = festivalEntityRepository;
     }
 
+    @Timed(value = "allFestivals.time", description = "Time taken to return all Festivals")
+    @Counted(value ="allFestivals.count", description = "How many times All Festivals have been called")
     @GetMapping("/all")
     public List<FestivalEntity> findAllFestivals() {
         return festivalEntityRepository.findAll();
