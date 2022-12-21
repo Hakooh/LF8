@@ -10,6 +10,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "localhost:3000")
 @RestController
 @RequestMapping("/api/festival")
+@CrossOrigin
 public class FestivalController {
 
     private final FestivalEntityRepository festivalEntityRepository;

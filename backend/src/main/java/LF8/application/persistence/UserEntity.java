@@ -11,6 +11,7 @@ import java.util.Set;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
+@RequiredArgsConstructor(access = AccessLevel.PUBLIC)
 @Table(name = "USERS")
 public class UserEntity {
 
@@ -47,6 +48,4 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "user")
     private Set<RatingEntity> ratings;
-
-
 }

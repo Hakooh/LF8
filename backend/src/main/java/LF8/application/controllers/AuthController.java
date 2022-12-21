@@ -63,13 +63,13 @@ public class AuthController {
         }
 
         // Creating user's account
-        UserEntity userEntity = UserEntity.builder().firstName(signUpRequest.getFirstName())
-                .lastName(signUpRequest.getLastName())
-                .dayOfBirth(signUpRequest.getDateOfBirth())
-                .gender(signUpRequest.getGender())
-                .eMail(signUpRequest.getEMail())
-                .password(encoder.encode(signUpRequest.getPassword())).build();
-
+        UserEntity userEntity = new UserEntity(
+            signUpRequest.getFirstName(),
+            signUpRequest.getLastName(),
+            signUpRequest.getDateOfBirth(),
+            signUpRequest.getGender(),
+            signUpRequest.getEMail(),
+            encoder.encode(signUpRequest.getPassword()));
 
         userEntityRepository.save(userEntity);
 
