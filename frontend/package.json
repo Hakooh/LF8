@@ -12,11 +12,20 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.10",
     "axios": "^1.2.1",
+    "bootstrap": "^5.2.3",
+    "config": "^3.3.8",
     "element-plus": "^2.2.13",
+    "jquery": "^3.6.3",
+    "popper.js": "^1.16.1",
+    "s-vuex-class": "^0.4.1",
+    "vee-validate": "^4.7.3",
     "vue": "^3.2.36",
+    "vue-class-component": "^8.0.0-rc.1",
+    "vue-property-decorator": "^10.0.0-rc.3",
     "vue-router": "^4.0.13",
     "vue-star-rating": "^2.1.0",
-    "vue3-runtime-template": "^1.0.1"
+    "vue3-runtime-template": "^1.0.1",
+    "vuex-module-decorators": "^2.0.0"
   },
   "devDependencies": {
     "@iconify-json/ep": "^1.1.4",

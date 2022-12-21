@@ -10,6 +10,9 @@
         <i inline-flex i="dark:ep-moon ep-sunny" />
       </button>
     </el-menu-item>
+    <el-menu-item>
+      <button @click="$router.push('/login'></button>
+    </el-menu-item>
   </el-menu>
 
 </template>

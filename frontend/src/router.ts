@@ -4,6 +4,7 @@ import festivalTable from "~/components/Sites/FestivalTable/Festivals.vue";
 import pageNotFound from "~/components/Sites/PageNotFound/PageNotFound.vue";
 import FestivalDetails from "~/components/Sites/FestivalDetails/FestivalDetails.vue";
 import ShopDetails from "~/components/Sites/ShopDetails/ShopDetails.vue";
+import LoginPage from "~/components/Sites/LogIn/Login.vue";
 
 const routes = [
     {
@@ -35,6 +36,12 @@ const routes = [
         name:'pageNotFound',
         component: pageNotFound,
         props: true
+    },
+    {
+        path: '/login',
+        name: 'loginPage',
+        component: LoginPage,
+        props: true
     }
 ]
 
@@ -42,6 +49,5 @@ const router = createRouter({
     history: createWebHistory(),
     routes,
 })
-
 
 export default router;
