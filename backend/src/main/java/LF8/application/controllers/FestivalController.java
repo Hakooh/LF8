@@ -27,6 +27,7 @@ public class FestivalController {
         return festivalEntityRepository.findAll();
     }
 
+    @Timed(value = "deleteShop.festival", description = "Time taken to delete a festival.")
     @DeleteMapping("/delete/id/{id}")
     public void deleteFestival(@PathVariable Long id) {
         festivalEntityRepository.deleteById(id);
