@@ -33,15 +33,15 @@ public class AuthControllerUnitTest {
 
 	@Test
 	@Order(1)
-	public void loginBeforeSignUpTest() throws Exception {
-		log.info("Log in user before signup");
+	public void signInBeforeSignUp() throws Exception {
+		log.info("Sign in user before they exist");
 		mvc.perform(MockMvcRequestBuilders.post("/api/auth/signin").contentType(MediaType.APPLICATION_JSON)
 				.content(LOG_IN_BODY)).andExpect(status().isBadRequest());
 	}
 
 	@Test
 	@Order(2)
-	public void signUpTest() throws Exception {
+	public void signUp() throws Exception {
 		log.info("Sign up user");
 		mvc.perform(MockMvcRequestBuilders.post("/api/auth/signup").contentType(MediaType.APPLICATION_JSON)
 				.content(SIGN_UP_BODY)).andExpect(status().isOk());
@@ -49,7 +49,7 @@ public class AuthControllerUnitTest {
 
 	@Test
 	@Order(3)
-	public void signUpSameUserTest() throws Exception {
+	public void signUpSameUser() throws Exception {
 		log.info("Sign up identical user");
 		mvc.perform(MockMvcRequestBuilders.post("/api/auth/signup").contentType(MediaType.APPLICATION_JSON)
 				.content(SIGN_UP_BODY)).andExpect(status().isBadRequest());
@@ -57,8 +57,8 @@ public class AuthControllerUnitTest {
 
 	@Test
 	@Order(4)
-	public void loginTest() throws Exception{
-		log.info("Log in user");
+	public void signIn() throws Exception{
+		log.info("Sign in user");
 		mvc.perform(MockMvcRequestBuilders.post("/api/auth/signin").contentType(MediaType.APPLICATION_JSON)
 				.content(LOG_IN_BODY)).andExpect(status().isOk());
 	}
