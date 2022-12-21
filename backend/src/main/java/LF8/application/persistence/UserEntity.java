@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 @Data
 @Builder
@@ -14,38 +13,34 @@ import java.util.Set;
 @RequiredArgsConstructor(access = AccessLevel.PUBLIC)
 @Table(name = "USERS")
 public class UserEntity {
-
-    private static final String GENERATOR = "userEntity_id.generator";
-
     @Id
-    @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = GENERATOR)
-    @SequenceGenerator(name = GENERATOR, sequenceName = "userEntity_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="first_name")
+    @Column
+    @NonNull
     private String firstName;
 
-    @Column(name="last_name")
+    @Column
+    @NonNull
     private String lastName;
 
     @Temporal(TemporalType.DATE)
-    @Column(name="day_of_birth")
+    @NonNull
     private LocalDate dayOfBirth;
 
-    @Column(name="gender")
+    @Column
+    @NonNull
     private String gender;
 
-    @Column(name="e_mail")
+    @Column(unique=true)
+    @NonNull
     private String eMail;
 
-    @Column(name="password")
+    @Column
+    @NonNull
     private String password;
 
     @Temporal(TemporalType.DATE)
-    @Column(name="last_login")
     private LocalDate lastLogin;
-
-    @OneToMany(mappedBy = "user")
-    private Set<RatingEntity> ratings;
 }
