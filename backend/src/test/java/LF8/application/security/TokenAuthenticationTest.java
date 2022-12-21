@@ -17,6 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import LF8.application.Lf8Application;
 import LF8.application.security.jwt.JwtUtils;
+import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @ExtendWith(SpringExtension.class)
