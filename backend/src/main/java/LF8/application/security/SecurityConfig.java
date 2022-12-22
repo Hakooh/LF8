@@ -48,8 +48,6 @@ public class SecurityConfig {
                 .and()
                 .headers().frameOptions().sameOrigin()
                 .and()
-                .authorizeHttpRequests().requestMatchers("/api/auth/**", "/api/test/**").permitAll()
-                .and()
                 .authorizeHttpRequests().anyRequest().authenticated();
 
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
