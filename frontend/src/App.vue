@@ -1,11 +1,10 @@
 <template>
   <el-config-provider namespace="ep">
+    <img alt="Vue logo" class="element-plus-logo" src="./assets/Banner.png" />
     <BaseHeader />
     <div style="display: flex">
-      <BaseSide />
       <div>
-        <img alt="Vue logo" class="element-plus-logo" src="./assets/logo.png" />
-        <HelloWorld msg="Hello Vue 3.0 + Element Plus + Vite" />
+        <router-view/>
       </div>
     </div>
   </el-config-provider>
@@ -18,6 +17,7 @@
 }
 
 .element-plus-logo {
-  width: 50%;
+  width: 100%;
+  height: 180px;
 }
 </style>

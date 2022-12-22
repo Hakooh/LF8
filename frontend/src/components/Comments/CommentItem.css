@@ -1,0 +1,10 @@
+.CommentItem {
+    padding-top: 15px;
+    background: #252525;
+}
+
+
+.CommentItem__starRating {
+    padding-left: 40%;
+    margin-bottom: 15px;
+}

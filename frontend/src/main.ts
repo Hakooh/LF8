@@ -14,7 +14,14 @@ import 'uno.css'
 
 // If you want to use ElMessage, import it.
 import "element-plus/theme-chalk/src/message.scss"
+import {ElementPlus} from "@element-plus/icons-vue";
+import router from "~/router";
+import Vuex from "vuex";
+
+//library.add(faHome, faUser, faUserPlus, faSigninAlt, faSignOutAlt);
 
 const app = createApp(App);
 // app.use(ElementPlus);
+app.use(router)
+
 app.mount("#app");

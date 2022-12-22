@@ -5,21 +5,22 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    BaseHeader: typeof import('./components/layouts/BaseHeader.vue')['default']
-    BaseSide: typeof import('./components/layouts/BaseSide.vue')['default']
+    BaseHeader: typeof import('./components/layout/BaseHeader.vue')['default']
+    CommentItem: typeof import('./components/Comments/CommentItem.vue')['default']
+    CommentManager: typeof import('./components/Comments/CommentManager.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCard: typeof import('element-plus/es')['ElCard']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
-    ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
-    ElIcon: typeof import('element-plus/es')['ElIcon']
-    ElInput: typeof import('element-plus/es')['ElInput']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
-    ElMenuItemGroup: typeof import('element-plus/es')['ElMenuItemGroup']
-    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
-    ElTag: typeof import('element-plus/es')['ElTag']
-    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    FestivalDetails: typeof import('./components/Sites/FestivalDetails/FestivalDetails.vue')['default']
+    Festivals: typeof import('./components/Sites/FestivalTable/Festivals.vue')['default']
+    Home: typeof import('./components/Sites/Home/Home.vue')['default']
+    Login: typeof import('./components/Sites/LogIn/Login.vue')['default']
+    PageNotFound: typeof import('./components/Sites/PageNotFound/PageNotFound.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    ShopDetails: typeof import('./components/Sites/ShopDetails/ShopDetails.vue')['default']
   }
 }
 
