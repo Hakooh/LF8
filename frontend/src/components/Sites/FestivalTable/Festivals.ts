@@ -6,7 +6,6 @@ export default {
     data() {
         return {
             festivals: [],
-            msg: "test"
         }
     },
     mounted() {

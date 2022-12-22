@@ -1,5 +1,18 @@
 import comment from './CommentItem.vue';
 import StarRating from 'vue-star-rating';
+import axios from "axios";
+
+
+const BASE_URL = 'http://localhost:8080/api/shop'
+
+function getIdFromURL() {
+    let path = window.location.pathname;
+
+    let segments = path.split("/");
+
+    return segments[3]
+}
+
 
 export default {
     components: {
@@ -8,30 +21,7 @@ export default {
     },
     data: function() {
         return {
-            comments: [
-                {
-                    id: 1,
-                    body: "Test123",
-                    edited: false,
-                    created_at: new Date().toLocaleString(),
-                    rating: 4,
-                    author: {
-                        id: 1,
-                        name: 'Kevin',
-                    }
-                },
-                {
-                    id: 2,
-                    body: "test456",
-                    edited: false,
-                    created_at: new Date().toLocaleString(),
-                    rating: 2,
-                    author: {
-                        id: 2,
-                        name: 'Heinitz',
-                    }
-                }
-            ],
+            ratings: [],
             data: [
                 {
                     body:"",
@@ -40,38 +30,59 @@ export default {
             ]
         }
     },
+    mounted() {
+        axios.get(BASE_URL + '/id/' + getIdFromURL())
+            .then((response) => {
+                // @ts-ignore
+                this.ratings = response.data.ratings
+            })
+    },
+
     methods: {
 
         updateComment($event) {
-            let index = this.comments.findIndex((element) => {
+            let index = this.ratings.findIndex((element) => {
                 return element.id === $event.id;
             });
-            this.comments[index].body = $event.body;
+            this.ratings[index].comment = $event.body;
         },
 
         deleteComment($event) {
-            let index = this.comments.findIndex((element) => {
+            let index = this.ratings.findIndex((element) => {
                 return element.id === $event.id;
             });
 
-            this.comments.splice(index, 1);
+            this.ratings.splice(index, 1);
         },
 
         saveComment() {
             let newComment = {
-                id: this.comments[this.comments.length - 1].id + 1,
-                body: this.data.body,
-                edited: false,
-                created_at: new Date().toLocaleString(),
+                id: this.ratings[this.ratings.length - 1].id + 1,
+                message: this.data.body,
+                commentDate: new Date().toISOString().split('T')[0],
                 rating: this.data.rating,
-                author: {
-                    id: "this.user.id",
-                    name: "this.user.name",
+                user: {
+                    id: 1,
+                    firstName: "Kevin",
+                },
+                shop: {
+                    id: 1,
                 }
             }
-            this.comments.push(newComment);
+            this.ratings.push(newComment);
 
             this.data.body = '';
+
+            return axios.post("http://localhost:8080/api/rating/post", newComment
+            )
+                .then(function(response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error)
+                })
+
+
         },
 
         setRating: function(rating) {
@@ -81,7 +92,7 @@ export default {
 
     props: {
         user: {
-            required: true,
+            required: false,
             type: Object,
         },
     }

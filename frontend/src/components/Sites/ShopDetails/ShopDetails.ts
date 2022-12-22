@@ -4,14 +4,14 @@ import StarRating from 'vue-star-rating';
 import CommentManager from '../../Comments/CommentManager.vue'
 
 
-const BASE_URL = 'http://localhost:8080/api/festival'
+const BASE_URL = 'http://localhost:8080/api/shop'
 
 function getIdFromURL() {
     let path = window.location.pathname;
 
     let segments = path.split("/");
 
-    return segments[2]
+    return segments[3]
 }
 
 export default {
@@ -27,16 +27,15 @@ export default {
     },
     data() {
         return {
-            festival: [],
-            msg: "test",
+            shops: [],
             rating:[],
         }
     },
     mounted() {
-        axios.get(BASE_URL+'/Id/'+getIdFromURL())
+        axios.get(BASE_URL+'/id/'+getIdFromURL())
             .then((response) => {
                 // @ts-ignore
-                this.festival = response.data
+                this.shops = response.data
             })
     },
 }

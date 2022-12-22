@@ -3,13 +3,7 @@ import axios from 'axios'
 export default{
     data() {
         return {
-            posts: []
+            msg: "LF8 Projekt Homepage"
         }
     },
-    mounted() {
-        axios.get('http://localhost:8080/api/user/all')
-            .then((response) => {
-                this.posts = response.data
-            })
-    }
 }

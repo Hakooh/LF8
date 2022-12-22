@@ -1,6 +1,5 @@
-import Vue, { createApp } from "vue";
+import { createApp } from "vue";
 import App from "./App.vue";
-import VeeValidate from 'vee-validate';
 
 // import "~/styles/element/index.scss";
 
@@ -24,4 +23,5 @@ import Vuex from "vuex";
 const app = createApp(App);
 // app.use(ElementPlus);
 app.use(router)
+
 app.mount("#app");

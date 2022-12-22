@@ -13,11 +13,5 @@ export default {
       msg: "pageNotFound"
     }
   },
-  mounted() {
-    axios.get('http://localhost:8080/api/user/all')
-        .then((response) => {
-          this.posts = response.data
-        })
-  }
 }
 </script>

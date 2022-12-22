@@ -2,7 +2,7 @@
   <div>
     <div>
       <div>
-        <h2>Comments</h2>
+        <h2>{{ 'Comments' }}</h2>
       </div>
       <star-rating class="CommentManager__StarRating"
                    @update:rating="setRating"
@@ -19,7 +19,7 @@
         <el-button>Cancel</el-button>
       </div>
     </div>
-    <comment v-for="comment in comments"
+    <comment v-for="comment in ratings"
              :key="comment.id"
              :comment="comment"
              @comment-updated="updateComment($event)"

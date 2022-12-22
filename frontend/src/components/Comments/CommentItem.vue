@@ -6,11 +6,11 @@
                    v-bind:read-only="true"
                    v-bind:increment="0.5"
                    v-bind:star-size="15"/>
-      <p>{{ comment.body }}</p>
+      <p>{{ comment.comment }}</p>
       <el-button @click="state = 'editing'">Edit</el-button>
     </div>
     <div>
-      <p>{{comment.author.name}} <span>&bull;</span>{{ comment.created_at}}</p>
+      <p>{{comment.user.firstName}} <span>&bull;</span>{{ comment.commentDate }}</p>
     </div>
     <div v-show="state === 'editing'">
       <div>

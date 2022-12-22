@@ -28,7 +28,6 @@ export default {
     data() {
         return {
             festival: [],
-            msg: "test",
             rating:[],
         }
     },

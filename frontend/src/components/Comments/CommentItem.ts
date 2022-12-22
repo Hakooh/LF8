@@ -22,7 +22,7 @@ export default {
     methods: {
         resetEdit() {
             this.state = 'default';
-            this.data.body = this.comment.body;
+            this.data.body = this.comment.comment;
         },
         saveEdit() {
             this.state = 'default';

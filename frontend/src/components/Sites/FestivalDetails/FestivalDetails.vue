@@ -11,7 +11,6 @@
       <el-button @click="$router.push('/festivals/shops/'+shop.id)" :key="shop.id">Details</el-button>
     </el-card>
     <div class="DetailsPage__CommentManager">
-      <CommentManager/>
     </div>
   </div>
   <router-view/>

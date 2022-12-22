@@ -11,10 +11,11 @@
       </button>
     </el-menu-item>
     <el-menu-item>
-      <button @click="$router.push('/login'></button>
+      <el-button @click="$router.push('/login')">
+      {{ Login }}
+      </el-button>
     </el-menu-item>
   </el-menu>
-
 </template>
 
 

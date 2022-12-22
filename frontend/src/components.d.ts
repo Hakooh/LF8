@@ -6,23 +6,21 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BaseHeader: typeof import('./components/layout/BaseHeader.vue')['default']
-    BaseSide: typeof import('./components/layout/BaseSide.vue')['default']
     CommentItem: typeof import('./components/Comments/CommentItem.vue')['default']
     CommentManager: typeof import('./components/Comments/CommentManager.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
+    ElMenu: typeof import('element-plus/es')['ElMenu']
+    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     FestivalDetails: typeof import('./components/Sites/FestivalDetails/FestivalDetails.vue')['default']
     Festivals: typeof import('./components/Sites/FestivalTable/Festivals.vue')['default']
     Home: typeof import('./components/Sites/Home/Home.vue')['default']
     Login: typeof import('./components/Sites/LogIn/Login.vue')['default']
     PageNotFound: typeof import('./components/Sites/PageNotFound/PageNotFound.vue')['default']
-    Profile: typeof import('./components/Sites/Profile/Profile.vue')['default']
-    Register: typeof import('./components/Sites/Register/Register.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ShopDetails: typeof import('./components/Sites/ShopDetails/ShopDetails.vue')['default']
-    TestSite: typeof import('./components/testSite.vue')['default']
   }
 }
 
