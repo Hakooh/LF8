@@ -25,6 +25,7 @@ public class RatingController {
         return ratingEntityRepository.findAll();
     }
 
+    @Timed(value = "deleteShop.rating", description = "Time taken to delete a rating.")
     @DeleteMapping("/delete/id/{id}")
     public void deleteRating(@PathVariable Long id) {
         ratingEntityRepository.deleteById(id);
