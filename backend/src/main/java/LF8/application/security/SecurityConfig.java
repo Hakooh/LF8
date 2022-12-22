@@ -45,6 +45,7 @@ public class SecurityConfig {
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests().requestMatchers("/api/auth/**", "/actuator/prometheus").permitAll()
+                .and()
                 .headers().frameOptions().sameOrigin()
                 .and()
                 .authorizeHttpRequests().requestMatchers("/api/auth/**", "/api/test/**").permitAll()
