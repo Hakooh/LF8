@@ -32,8 +32,4 @@ public class RatingEntity {
     @Temporal(TemporalType.DATE)
     @JsonDeserialize(as = LocalDate.class)
     private LocalDate commentDate;
-
-    @ManyToOne
-    @JoinColumn(name = "shop")
-    private ShopEntity shop;
 }

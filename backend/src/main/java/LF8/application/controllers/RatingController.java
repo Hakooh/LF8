@@ -3,6 +3,7 @@ package LF8.application.controllers;
 import LF8.application.persistence.RatingEntity;
 import LF8.application.persistence.RatingEntityRepository;
 import LF8.application.persistence.UserEntity;
+import io.micrometer.core.annotation.Timed;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
