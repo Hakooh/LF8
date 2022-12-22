@@ -58,7 +58,7 @@ export default {
         saveComment() {
             let newComment = {
                 id: this.ratings[this.ratings.length - 1].id + 1,
-                message: this.data.body,
+                comment: this.data.body,
                 commentDate: new Date().toISOString().split('T')[0],
                 rating: this.data.rating,
                 user: {
@@ -81,8 +81,6 @@ export default {
                 .catch(function (error) {
                     console.log(error)
                 })
-
-
         },
 
         setRating: function(rating) {

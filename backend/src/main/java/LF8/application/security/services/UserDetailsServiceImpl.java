@@ -15,14 +15,14 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
-    UserEntityRepository userRepository;
+    UserEntityRepository userEntityRepository;
 
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String email)
             throws UsernameNotFoundException {
 
-        UserEntity user = userRepository.findByeMail(email)
+        UserEntity user = userEntityRepository.findByeMail(email)
                 .orElseThrow(() ->
                         new UsernameNotFoundException("User Not Found with email: " + email)
                 );
