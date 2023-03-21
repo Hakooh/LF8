@@ -1,17 +1,26 @@
++ (hello|hi|hey) [*]
+- Hey <get firstname>, how can I help you?
+- Hi <get firstname>! Is there something I can help you with?
 
-+ knock knock
-- Who's there?
++ (who are you)
+- I am <bot name>! Let me know if there is anything i can help you with.
+- I am <bot name>, your technical assistant!
 
-+ *
-% who is there
-- <star> who?
-
-+ *
-% * who
-- LOL! <star>! That's funny!
++ <bot name>
+- Yes?
+- Yeah?
+- Can I help?
 
 + [*] my email
 - Did you forget your email? It is <id>!
 
-+ (hello|hi|hey) [*]
-- Hello <get firstname>, how can I help you?
++ no
+- Is there anything else I could help you with?
+
+//Handle unknown queries
++ *
+- Sorry, I don't understand. Can you rephrase your question?
+- I am sorry, I don't think I understand your question. Could you rephrase it?
+
++ *
+- I am having trouble understanding your question. Do you want to talk to our Support?
