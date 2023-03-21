@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rivescript.RiveScript;
 
+import LF8.application.persistence.UserEntity;
 import LF8.application.persistence.UserEntityRepository;
 import LF8.application.security.jwt.JwtUtils;
 
@@ -29,8 +30,17 @@ public class ChatController {
 
     @GetMapping("/send")
     public String getReply(@RequestParam String text, @RequestHeader("Authorization") String token) {
-        String username = jwtUtils.getEMailFromJwtToken(token.replace("Bearer ", ""));
-        return riveScript.reply(username, text);
+        String email = jwtUtils.getEMailFromJwtToken(token.replace("Bearer ", ""));
+        if (riveScript.getUservars(email) == null || riveScript.getUservars(email).getVariables().isEmpty()) {
+            setUserData(email);
+        }
+
+        return riveScript.reply(email, text);
     }
 
+    private void setUserData(String email) {
+        UserEntity user = entityRepository.findByeMail(email).get();
+        riveScript.setUservar(email, "firstname", user.getFirstName());
+        riveScript.setUservar(email, "lastname", user.getLastName());
+    }
 }

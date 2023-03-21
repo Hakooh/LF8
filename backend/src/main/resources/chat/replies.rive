@@ -9,3 +9,9 @@
 + *
 % * who
 - LOL! <star>! That's funny!
+
++ [*] my email
+- Did you forget your email? It is <id>!
+
++ (hello|hi|hey) [*]
+- Hello <get firstname>, how can I help you?
