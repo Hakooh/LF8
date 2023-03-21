@@ -114,6 +114,11 @@
 			<version>${jwt.version}</version>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.rivescript</groupId>
+			<artifactId>rivescript-core</artifactId>
+			<version>0.11.0</version>
+		  </dependency>
 	</dependencies>
     <build>
 		<plugins>

@@ -6,6 +6,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import com.rivescript.Config;
+import com.rivescript.RiveScript;
+
 @SpringBootApplication
 public class Lf8Application {
 
@@ -18,6 +21,11 @@ public class Lf8Application {
 		return new TimedAspect(registry);
 	}
 
-	
-
+	@Bean
+    public RiveScript riveScript() {
+        RiveScript bot = new RiveScript(Config.utf8());
+        //TODO fix path
+		bot.loadDirectory(System.getProperty("user.dir") + "/src/main/resources/chat");
+        return bot;
+    }
 }
