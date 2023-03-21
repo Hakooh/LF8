@@ -24,8 +24,7 @@ public class Lf8Application {
 	@Bean
     public RiveScript riveScript() {
         RiveScript bot = new RiveScript(Config.utf8());
-        //TODO fix path
-		bot.loadDirectory(System.getProperty("user.dir") + "/src/main/resources/chat");
+		bot.loadFile(Lf8Application.class.getClassLoader().getResource("replies.rive").getFile());
         return bot;
     }
 }
