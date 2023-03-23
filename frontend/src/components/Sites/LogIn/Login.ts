@@ -1,48 +1,33 @@
-import {Options, Vue,} from "vue-property-decorator";
-import { namespace } from "s-vuex-class";
-import Component from 'vue-class-component';
+import axios from 'axios'
 
 
-const Auth = namespace("Auth");
 
-
-@Options({})
-export default class Login extends Vue {
-    private user = {username: "", password: ""};
-    private loading = false;
-    private message = "";
-
-    @Auth.Getter
-    private isLoggedIn!: boolean;
-
-    @Auth.Action
-    private login!: (data: any) => Promise<any>;
-
-    created() {
-        if (this.isLoggedIn) {
-            this.$router.push("/profile");
+const BASE_URL = 'http://localhost:8080/api/auth'
+export default{
+    data() {
+        return {
+            username: "",
+            password: "",
+        }
+    },
+    methods:
+    {
+        login123() {
+            axios.get(BASE_URL+"/signin")
+            .then(response => console.log(response))
+        },
+        login() { 
+            fetch(BASE_URL+"/signin", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "https://localhost:3000"
+                },
+                body: JSON.stringify({
+                    username: "test",
+                    password: "test2"
+                })
+            })
         }
     }
-
-    handleLogin() {
-        this.loading = true;
-        this.$validator.validateAll().then((isValid) => {
-            if (!isValid) {
-                this.loading = false;
-                return;
-            }
-
-            if (this.user.username && this.user.password) {
-                this.login(this.user).then(
-                    (data) => {
-                        this.$router.push("/profile");
-                    },
-                    (error) => {
-                        this.loading = false;
-                        this.message = error;
-                    }
-                );
-            }
-        })
-    }
-}
+};
