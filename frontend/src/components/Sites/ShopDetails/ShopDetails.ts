@@ -13,7 +13,7 @@ function getIdFromURL() {
 
     return segments[3]
 }
-
+// ../../../../frontend/src/assets/zoey_cropped.png
 export default {
     components: {
         StarRating,

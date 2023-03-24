@@ -7,6 +7,7 @@
         <router-view/>
       </div>
     </div>
+    <ChatBot />
   </el-config-provider>
 </template>
 

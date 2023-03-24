@@ -6,6 +6,7 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BaseHeader: typeof import('./components/BaseHeader/BaseHeader.vue')['default']
+    ChatBot: typeof import('./components/ChatBot/ChatBot.vue')['default']
     CommentItem: typeof import('./components/Comments/CommentItem.vue')['default']
     CommentManager: typeof import('./components/Comments/CommentManager.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -18,9 +19,11 @@ declare module '@vue/runtime-core' {
     Home: typeof import('./components/Sites/Home/Home.vue')['default']
     Login: typeof import('./components/Sites/LogIn/Login.vue')['default']
     PageNotFound: typeof import('./components/Sites/PageNotFound/PageNotFound.vue')['default']
+    Readme: typeof import('./components/ChatBot/readme.md')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ShopDetails: typeof import('./components/Sites/ShopDetails/ShopDetails.vue')['default']
+    Test: typeof import('./components/ChatBot/test.vue')['default']
   }
 }
 
