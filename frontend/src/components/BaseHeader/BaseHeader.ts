@@ -1,7 +1,6 @@
 
 import { mapGetters } from 'vuex';
-import store from 'G:/Own_Projects/Schule_Lernfeld_8/LF8/frontend/src/store';
-
+import store from '~/store';
 
 
 export default {
