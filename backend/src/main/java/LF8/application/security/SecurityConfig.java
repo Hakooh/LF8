@@ -44,7 +44,7 @@ public class SecurityConfig {
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .authorizeHttpRequests().requestMatchers("/api/auth/**", "/actuator/prometheus").permitAll()
+                .authorizeHttpRequests().requestMatchers("/api/auth/**", "/api/chat/**" ,"/actuator/prometheus").permitAll()
                 .and()
                 .headers().frameOptions().sameOrigin()
                 .and()

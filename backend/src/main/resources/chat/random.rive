@@ -1,0 +1,6 @@
++ [*] login [*]
+- <set repeat=false> Hast du ein Problem bei der Anmeldung? {topic=confirmProblemLogin}
+
++ [*]
+* <get repeat> == true => <set repeat=false> Es tut mir leid, ich verstehe deine Frage nicht. Möchtest du mit dem Support sprechen?{topic=contactSupport}
+- <set repeat=true> Entschuldige, ich habe dich nicht verstanden, könntest du dein Problem anders formulieren?
