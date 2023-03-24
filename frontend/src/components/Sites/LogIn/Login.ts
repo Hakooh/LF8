@@ -1,33 +1,31 @@
-import axios from 'axios'
-
+import { mapMutations } from "vuex";
 
 
 const BASE_URL = 'http://localhost:8080/api/auth'
 export default{
-    data() {
+    data: () => {
         return {
-            username: "",
+            email: "",
             password: "",
         }
     },
     methods:
     {
-        login123() {
-            axios.get(BASE_URL+"/signin")
-            .then(response => console.log(response))
-        },
-        login() { 
-            fetch(BASE_URL+"/signin", {
+        ...mapMutations(["setToken"]),
+        async login() { 
+            const response = await fetch(BASE_URL+"/signin", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": "https://localhost:3000"
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    username: "test",
-                    password: "test2"
+                    email: this.email,
+                    password: this.password
                 })
-            })
+            });
+            const { token } = await response.json();
+            this.setToken(token);
+            this.$router.push("/")
         }
-    }
+    },
 };

@@ -5,7 +5,7 @@ import '@vue/runtime-core'
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    BaseHeader: typeof import('./components/layout/BaseHeader.vue')['default']
+    BaseHeader: typeof import('./components/BaseHeader/BaseHeader.vue')['default']
     CommentItem: typeof import('./components/Comments/CommentItem.vue')['default']
     CommentManager: typeof import('./components/Comments/CommentManager.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
