@@ -9,7 +9,7 @@
 
 > topic findProblemLogin
 +  [*] passwort [*]
-- Hast du ein Problem mit deinem Passwort? {topic=confirmProblemPassword}
+- Hast du dein Passwort vergessen? {topic=confirmResetPassword}
 
 + [*] email [*]
 - Hast du deine Email-Adresse vergessen? {topic=confirmProblemEmail}

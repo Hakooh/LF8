@@ -1,4 +1,4 @@
-+ [*] login [*]
++ [*] (login|passwort|email) [*]
 - <set repeat=false> Hast du ein Problem bei der Anmeldung? {topic=confirmProblemLogin}
 
 + [*]
