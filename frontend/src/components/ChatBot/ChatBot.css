@@ -10,8 +10,8 @@
     bottom: 0;
     right: 5px;
     border-radius: 5px 5px 0 0;
-    width: 260px;
-    height: 300px;
+    width: 15%;
+    height: 40%;
     overflow: hidden;
   }
 
@@ -53,18 +53,18 @@
     display: inline-block;
     width: 100%;
   }
-  
+
   .chatbox-conversation__message--chat-bot-zoey > .chatbox-message__content {
     float: left;
-    clear: both;
     background-color: white;
     color: black;
+    border-bottom-left-radius: 1px;
   }
   
   .chatbox-conversation__message--user > .chatbox-message__content {
     float: right;
-    clear: both;
     background-color: black;
+    border-bottom-right-radius: 1px;
   }
   
   .chatbox-message__sender {
@@ -77,9 +77,11 @@
   .chatbox-message__content {
     padding: 5px 12px;
     background: #5e6e6e;
-    border-radius: 12px;
+    border-radius: 7px;
     display: inline-block;
     margin: 5px 0 0;
+    text-align: start;
+    clear: both;
   }
   
   .chatbox-message__content > p {
@@ -92,5 +94,41 @@
     right: 0;
     left: 0;
     background: #666;
-    padding: 5px 10px;
+    padding: 5px;
+    display: flex;
   }
+
+  .send-image {
+    width: 95%;
+    height: 95%;
+    margin-left: 2px;
+    object-fit: contain;
+    align-self: center;;
+    vertical-align: middle;
+  }
+  
+  button.chatbox-btn.chatbox-btn--send {
+    width: 32px;
+    height: 32px;
+    background: #4d4d4d;
+    border-radius: 50%;
+    border-style: none;
+  }
+
+  .chatbox-text {
+    border-style: none;
+    width: 90%;
+    resize: none;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin-right: 5px;
+    border-radius: 3px;
+  }
+
+  .chatbox-text:focus {
+    outline: none;
+}
+
+.chatbox-btn-send:hover {
+  background: #868686;
+}

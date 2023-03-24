@@ -23,12 +23,13 @@
             </ul>
         </div>
         <div class="chatbox-footer">
-            <input 
+            <input
+            class="chatbox-text"
             type="text" 
             v-model="message" 
-            @keyup.enter="sendMessage" 
+            @keydown.enter="sendMessage"
             />
-            <button @click="sendMessage" class="chatbox-btn chatbox-btn--send">Send</button>
+            <button @click="sendMessage" class="chatbox-btn chatbox-btn--send" alt="Send"><img src="../../assets/send.webp" class="send-image"></button>
         </div>
     </div>
 </template>
