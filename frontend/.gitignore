@@ -12,5 +12,3 @@ package-lock.json
 pnpm-lock.yaml
 
 *.log
-/src/assets/Banner.png
-/src/assets/Dom_banner.png
