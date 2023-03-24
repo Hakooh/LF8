@@ -67,28 +67,11 @@
     background-color: black;
   }
   
-  .chatbox-conversation__message--from > .chatbox-message__sender > .chatbox-message__photo {
-    margin-right: 6px;
-  }
-  
-  .chatbox-conversation__message--to > .chatbox-message__sender > .chatbox-message__photo {
-    margin-left: 6px;
-  }
-  
   .chatbox-message__sender {
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 12px;
-  }
-  
-  .chatbox-conversation__message--zoey-chat-bot > .chatbox-message__sender {
-    float: right;
-  }
-  
-  .chatbox-conversation__message--user > .chatbox-message__sender {
-    float: left;
-    flex-direction: row-reverse;
   }
   
   .chatbox-message__content {
@@ -97,14 +80,6 @@
     border-radius: 12px;
     display: inline-block;
     margin: 5px 0 0;
-  }
-  
-  .chatbox-message__photo {
-    border-radius: 100%;
-    border-width: 2px;
-    border-color: black;
-    border-style: solid;
-    overflow: hidden;
   }
   
   .chatbox-message__content > p {

@@ -23,7 +23,6 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ShopDetails: typeof import('./components/Sites/ShopDetails/ShopDetails.vue')['default']
-    Test: typeof import('./components/ChatBot/test.vue')['default']
   }
 }
 
