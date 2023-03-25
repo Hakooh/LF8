@@ -10,17 +10,16 @@
         <i inline-flex i="dark:ep-moon ep-sunny" />
       </button>
     </el-menu-item>
-    <el-menu-item>
-      <el-button @click="$router.push('/login')">
-      {{ Login }}
-      </el-button>
+    <el-menu-item v-if="!isLoggedIn" index="/login">
+      Login
     </el-menu-item>
   </el-menu>
 </template>
 
 
-<script lang="ts" setup>
+<script>
 import { toggleDark } from '~/composables';
+export { default } from "./BaseHeader";
 </script>
 
 <style lang="css">
@@ -30,6 +29,4 @@ import { toggleDark } from '~/composables';
 
 .el-menu-darkmode {
 }
-
-
 </style>

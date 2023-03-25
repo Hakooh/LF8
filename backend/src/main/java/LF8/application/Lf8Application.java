@@ -5,6 +5,8 @@ import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import com.rivescript.Config;
+import com.rivescript.RiveScript;
 
 @SpringBootApplication
 public class Lf8Application {
@@ -18,6 +20,11 @@ public class Lf8Application {
 		return new TimedAspect(registry);
 	}
 
-	
-
+	@Bean
+	public RiveScript riveScript() {
+		RiveScript bot = new RiveScript(Config.utf8());
+		bot.loadDirectory(Lf8Application.class.getClassLoader().getResource("chat").getPath().toString());
+		bot.sortReplies();
+		return bot;
+	}
 }

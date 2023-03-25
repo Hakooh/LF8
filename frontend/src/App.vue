@@ -1,12 +1,12 @@
 <template>
   <el-config-provider namespace="ep">
-    <img alt="Vue logo" class="element-plus-logo" src="./assets/Banner.png" />
     <BaseHeader />
     <div style="display: flex">
       <div>
         <router-view/>
       </div>
     </div>
+    <ChatBot />
   </el-config-provider>
 </template>
 

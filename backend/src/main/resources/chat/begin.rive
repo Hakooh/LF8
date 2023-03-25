@@ -1,0 +1,20 @@
+! var name = Zoey
+
+! sub &quot;        = "
+! sub &apos;        = '
+! sub &amp;         = &
+! sub &lt;          = <
+! sub &gt;          = >
+! sub +             = plus
+! sub -             = minus
+! sub /             = durch
+! sub *             = mal
+! sub jo            = ja
+! sub yo            = ja
+! sub ne            = nein
+! sub nope          = nein
+! sub mail          = email
+! sub e-mail        = email
+! sub anmelden      = login
+! sub anmeldung     = login
+! sub anmeldedaten  = login

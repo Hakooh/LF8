@@ -1,0 +1,20 @@
+> topic confirmProblemLogin
++ [*] ja [*]
+- Wobei hast du denn ein Problem? {topic=findProblemLogin}
+
++ [*]
+- Wobei kann ich dir denn behilflich sein? {topic=random}
+
+< topic
+
+> topic findProblemLogin
++  [*] passwort [*]
+- Hast du dein Passwort vergessen? {topic=confirmResetPassword}
+
++ [*] email [*]
+- Hast du deine Email-Adresse vergessen? {topic=confirmProblemEmail}
+
++ [*]
+- Bist du sicher, dass du ein Problem beim Anmelden hast? {topic=confirmProblemLogin}
+
+< topic
