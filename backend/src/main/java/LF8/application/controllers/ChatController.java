@@ -1,5 +1,7 @@
 package LF8.application.controllers;
 
+import java.util.NoSuchElementException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,17 +32,21 @@ public class ChatController {
 
     @GetMapping("/send")
     public String getReply(@RequestParam String text, @RequestHeader("Authorization") String token) {
-        String email = jwtUtils.getEMailFromJwtToken(token.replace("Bearer ", ""));
-        if (riveScript.getUservars(email) == null || riveScript.getUservars(email).getVariables().isEmpty()) {
-            setUserData(email);
-        }
-
-        return riveScript.reply(email, text);
+        String username = getBotUser(token);
+        return riveScript.reply(username, text);
     }
 
-    private void setUserData(String email) {
-        UserEntity user = entityRepository.findByeMail(email).get();
-        riveScript.setUservar(email, "firstname", user.getFirstName());
-        riveScript.setUservar(email, "lastname", user.getLastName());
+    private String getBotUser(String token) {
+        try {
+            String email = jwtUtils.getEMailFromJwtToken(token.replace("Bearer ", ""));
+            if (riveScript.getUservars(email) == null) {
+                UserEntity user = entityRepository.findByeMail(email).get();
+                riveScript.setUservar(email, "firstname", user.getFirstName());
+                riveScript.setUservar(email, "lastname", user.getLastName());
+            }
+            return email;
+        } catch (NoSuchElementException e) {
+            return "anonymous";
+        }
     }
 }
