@@ -1,8 +1,8 @@
 <template>
     <div class="chatbox">
         <div class="chatbox-header">
-            <img src="../../assets/zoey_cropped.png" class="chatbox__zoey-photo">
             <div class="chatbox-agent">
+                <img src="../../assets/zoey_cropped.png" class="chatbox__zoey-photo">
                 <span>Chat with Zoey</span>
             </div>
         
@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="chat-box-list-container">
-            <ul class="chatbox-conversation" id="messages">
+            <ul class="chatbox-conversation" id="messages" ref="messagelist">
                 <li class="chatbox-conversation__message"
                     v-for="(message, idx) in messages"
                     :key="idx"
@@ -23,9 +23,10 @@
             </ul>
         </div>
         <div class="chatbox-footer">
-            <input
+            <textarea
             class="chatbox-text"
-            type="text" 
+            type="text"
+            cols="70" 
             v-model="message" 
             @keydown.enter="sendMessage"
             />

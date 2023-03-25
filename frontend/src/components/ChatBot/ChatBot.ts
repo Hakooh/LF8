@@ -1,14 +1,15 @@
 import axios from "axios"
 import store from "~/store"
 
-
-
 export default {
     name: 'ChatBox',
     data: () => ({
         message: '',
         messages: []
     }),
+    mounted() {
+        this.messagelist = this.$refs.messagelist;
+    },
     methods: {
         sendMessage() {
             this.messages.push({
@@ -26,6 +27,7 @@ export default {
                     text: res.data,
                     author: 'chat-bot-zoey'
                 })
+                this.messagelist.lastElementChild.scrollIntoView({behavior:"smooth"})
             })
         }
     }
