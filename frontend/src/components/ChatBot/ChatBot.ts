@@ -12,11 +12,11 @@ export default {
   },
   methods: {
     sendMessage() {
+      if (this.message.trim() !== "") {
       this.messages.push({
         text: this.message,
         author: "user",
       });
-      if (this.message !== "") {
         axios
           .get("http://localhost:8080/api/chat/send?text=" + this.message, {
             headers: {
