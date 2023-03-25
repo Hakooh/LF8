@@ -15,10 +15,12 @@ import com.rivescript.RiveScript;
 import LF8.application.persistence.UserEntity;
 import LF8.application.persistence.UserEntityRepository;
 import LF8.application.security.jwt.JwtUtils;
+import lombok.extern.log4j.Log4j2;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/api/chat")
+@Log4j2
 public class ChatController {
 
     @Autowired
@@ -31,7 +33,7 @@ public class ChatController {
     UserEntityRepository entityRepository;
 
     @GetMapping("/send")
-    public String getReply(@RequestParam String text, @RequestHeader("Authorization") String token) {
+    public String getReply(@RequestParam String text, @RequestHeader(value = "Authorization", required = false )  String token) {
         String username = getBotUser(token);
         return riveScript.reply(username, text);
     }
@@ -45,7 +47,8 @@ public class ChatController {
                 riveScript.setUservar(email, "lastname", user.getLastName());
             }
             return email;
-        } catch (NoSuchElementException e) {
+        } catch (Exception e) {
+            log.info("Anonymous user is now using chat");
             return "anonymous";
         }
     }
