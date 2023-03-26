@@ -1,11 +1,13 @@
 import axios from "axios";
 import store from "~/store";
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
   name: "ChatBox",
   data: () => ({
-    message: "",
-    messages: [],
+    message: "" as String,
+    messages: [] as String[],
+    isChatboxVisible: false,
   }),
   mounted() {
     this.messagelist = this.$refs.messagelist;
@@ -14,8 +16,8 @@ export default {
     sendMessage() {
       if (this.message.trim() !== "") {
       this.messages.push({
-        text: this.message,
-        author: "user",
+         text: this.message,
+         author: "user",
       });
         axios
           .get("http://localhost:8080/api/chat/send?text=" + this.message, {
@@ -39,5 +41,12 @@ export default {
           });
       }
     },
+    showChatbox() {
+      this.isChatboxVisible = true;
+    },
+
+    closeChatbox() {
+      this.isChatboxVisible = false;
+    }
   },
-};
+});

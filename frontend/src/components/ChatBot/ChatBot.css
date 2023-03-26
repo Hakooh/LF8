@@ -32,6 +32,7 @@
   display: grid;
   grid-auto-flow: column;
   justify-content: space-between;
+  cursor: pointer;
   /*align-items: center;*/
 }
 
@@ -42,10 +43,6 @@
   grid-auto-flow: column;
   align-items: center;
   justify-content: start;
-}
-
-.chatbox-close {
-  float: right;
 }
 
 .chatbox-conversation {
@@ -161,4 +158,24 @@ button.chatbox-btn.chatbox-btn--send:hover {
 
 .chat-box-list-container::-webkit-scrollbar {
   display: none;
+}
+
+.chatbox-closed {
+  background: #449199;
+  position: absolute;
+  bottom: 0px;
+  right: 5px;
+  border-radius: 5px 5px 0 0;
+  width: 18%;
+}
+
+.chatbox-closed__header {
+  border-radius: 5px 5px 0 0;
+  padding: 5px;
+  overflow: hidden;
+  background: #449199;
+  display: grid;
+  grid-auto-flow: column;
+  /*align-items: center;*/
+  cursor: pointer;
 }

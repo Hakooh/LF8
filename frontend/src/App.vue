@@ -14,7 +14,7 @@
 #app {
   text-align: center;
   color: var(--ep-text-color-primary);
-}
+  color-scheme: dark;}
 
 .element-plus-logo {
   width: 100%;

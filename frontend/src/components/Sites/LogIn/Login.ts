@@ -1,8 +1,9 @@
+import { defineComponent } from "vue";
 import { mapMutations } from "vuex";
 
 
 const BASE_URL = 'http://localhost:8080/api/auth'
-export default{
+export default defineComponent({
     data: () => {
         return {
             email: "",
@@ -28,4 +29,4 @@ export default{
             this.$router.push("/")
         }
     },
-};
+});

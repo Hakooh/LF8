@@ -1,12 +1,11 @@
-
-import { mapGetters } from 'vuex';
+import { defineComponent } from '@vue/runtime-core';
 import store from '~/store';
 
 
-export default {
+export default defineComponent({
   data: () => {
     return {
       isLoggedIn: store.state.token
     }
   },
-}
+});
