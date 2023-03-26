@@ -2,5 +2,5 @@
 - <set repeat=false> Hast du ein Problem bei der Anmeldung? {topic=confirmProblemLogin}
 
 + [*]
-* <get repeat> == true => <set repeat=false> Es tut mir leid, ich verstehe deine Frage nicht. Möchtest du mit dem Support sprechen?{topic=contactSupport}
-- <set repeat=true> Entschuldige, ich habe dich nicht verstanden, könntest du dein Problem anders formulieren?
+* <get repeat> == true => <set repeat=false> Es tut mir leid, ich verstehe deine Frage nicht. M\u00f6chtest du mit dem Support sprechen?{topic=contactSupport}
+- <set repeat=true> Entschuldige, ich habe dich nicht verstanden, k\u00f6nntest du dein Problem anders formulieren?
