@@ -1,6 +1,15 @@
 import axios from "axios";
 import store from "~/store";
 
+function replaceUmlauts(string: string) {
+  let value;
+  value = string.toLowerCase();
+  value = value.replace(/ä/g, 'ae');
+  value = value.replace(/ö/g, 'oe');
+  value = value.replace(/ü/g, 'ue');
+  return value
+}
+
 export default {
   name: "ChatBox",
   data: () => ({
@@ -18,7 +27,7 @@ export default {
         author: "user",
       });
         axios
-          .get("http://localhost:8080/api/chat/send?text=" + this.message, {
+          .get("http://localhost:8080/api/chat/send?text=" + replaceUmlauts(this.message), {
             headers: {
               ...(store.state.token
                 ? { Authorization: "Bearer " + store.state.token }
