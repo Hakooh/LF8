@@ -28,7 +28,7 @@ export default {
           .then((res) => {
             this.message = "";
             this.messages.push({
-              text: res.data,
+              text: (decodeURIComponent(JSON.parse(`"${res.data}"`))),
               author: "chat-bot-zoey",
             });
           })

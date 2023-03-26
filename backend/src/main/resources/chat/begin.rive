@@ -1,3 +1,5 @@
+! version = 2.00
+
 ! var name = Zoey
 
 ! sub &quot;        = "
@@ -13,8 +15,12 @@
 ! sub yo            = ja
 ! sub ne            = nein
 ! sub nope          = nein
+! sub noe            = nein
 ! sub mail          = email
 ! sub e-mail        = email
 ! sub anmelden      = login
 ! sub anmeldung     = login
 ! sub anmeldedaten  = login
+! sub zugangsdaten  = login
+! sub anregung      = feedback
+! sub rueckmeldung   = feedback

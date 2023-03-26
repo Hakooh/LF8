@@ -157,6 +157,7 @@ button.chatbox-btn.chatbox-btn--send:hover {
   block-size: auto;
   overflow-y: scroll;
   overflow-x: hidden;
+  scrollbar-width: none;
 }
 
 .chat-box-list-container::-webkit-scrollbar {
