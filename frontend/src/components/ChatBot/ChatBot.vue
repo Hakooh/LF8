@@ -14,8 +14,8 @@
             <ul class="chatbox-conversation" id="messages" ref="messagelist">
                 <li class="chatbox-conversation__message chatbox-conversation__message--chat-bot-zoey">
                     <div class="chatbox-message__content">
-                        <p>Hey ich bin Zoey, deine virtuelle Assistentin :-&#41;</p>
-                        <p>Stelle mir gerne Fragen, wenn du Hilfe brauchst!</p>
+                        <p>Hey ich bin Zoey, deine virtuelle Assistentin!</p>
+                        <p>Stelle mir gerne Fragen, wenn du Hilfe brauchst oder Feedback für uns hast 😊</p>
                     </div>
                 </li>
                 <li class="chatbox-conversation__message"

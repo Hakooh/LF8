@@ -1,3 +1,5 @@
+! version = 2.00
+
 ! var name = Zoey
 
 ! sub &quot;        = "
@@ -9,12 +11,21 @@
 ! sub -             = minus
 ! sub /             = durch
 ! sub *             = mal
+! sub %C3%A4        = \u00e4 //ä
+! sub %C3%B6        = \u00f6 //ö
+! sub %C3%BC        = \u00fc //ü
 ! sub jo            = ja
 ! sub yo            = ja
 ! sub ne            = nein
 ! sub nope          = nein
+! sub nö            = nein
+! sub n&ouml;       = nein
+! sub n&#246;       = nein
 ! sub mail          = email
 ! sub e-mail        = email
 ! sub anmelden      = login
 ! sub anmeldung     = login
 ! sub anmeldedaten  = login
+! sub zugangsdaten  = login
+! sub anregung      = feedback
+! sub r\u00fcckmeldung   = feedback
