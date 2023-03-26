@@ -37,7 +37,7 @@ public class ChatController {
     public String getReply(@RequestParam String text, @RequestHeader(value = "Authorization", required = false )  String token) {
         String username = getBotUser(token);
         try {
-            //TODO: static replace of ä -> ae etc
+            //TODO: static replace of ä -> ae etc -> possibly fixed in frontend?
             text = URLEncoder.encode(text.toLowerCase(), "UTF-8");
             log.info(text);
         } catch (UnsupportedEncodingException e) {

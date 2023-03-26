@@ -3,10 +3,11 @@ import store from "~/store";
 
 function replaceUmlauts(string: string) {
   let value;
-  value = string.toLowerCase();
-  value = value.replace(/ä/g, 'ae');
-  value = value.replace(/ö/g, 'oe');
-  value = value.replace(/ü/g, 'ue');
+  value = string
+  .toLowerCase()
+  .replace(/ä/g, 'ae')
+  .replace(/ö/g, 'oe')
+  .replace(/ü/g, 'ue');;
   return value
 }
 
