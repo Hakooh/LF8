@@ -38,7 +38,6 @@ public class ChatController {
         String username = getBotUser(token);
         try {
             text = URLEncoder.encode(text.toLowerCase(), "UTF-8");
-            log.info(text);
         } catch (UnsupportedEncodingException e) {
             log.error("Error encoding incoming string: ", e.getMessage());
             return "";

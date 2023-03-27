@@ -1,0 +1,9 @@
+> topic confirmFeedback
++ ja
+- Dann kannst du dich auch gerne bei folgender E-Mail melden: feedback@teamtwo.de
+^\u000AWir freuen uns von dir zu h\u00f6ren! \uD83D\uDC93
+^\u000AWenn ich dir bei noch etwas helfen kann, dann sag einfach Bescheid!{topic=random}
+
++ [*]
+- Oh, alles klar. Kann ich dir denn bei etwas anderem helfen?{topic=random}
+< topic
