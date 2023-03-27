@@ -12,13 +12,12 @@ function replaceUmlauts(string: string) {
   return value
 }
 
-export default {
 export default defineComponent({
   name: "ChatBox",
   data: () => ({
     message: "" as String,
     messages: [] as String[],
-    isChatboxVisible: false,
+    isChatboxVisible: true,
   }),
   mounted() {
     this.messagelist = this.$refs.messagelist;
@@ -60,4 +59,4 @@ export default defineComponent({
       this.isChatboxVisible = false;
     }
   },
-};
+});
