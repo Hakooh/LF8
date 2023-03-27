@@ -1,5 +1,8 @@
 package LF8.application.controllers;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +36,12 @@ public class ChatController {
     @GetMapping("/send")
     public String getReply(@RequestParam String text, @RequestHeader(value = "Authorization", required = false )  String token) {
         String username = getBotUser(token);
+        try {
+            text = URLEncoder.encode(text.toLowerCase(), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            log.error("Error encoding incoming string: ", e.getMessage());
+            return "";
+        }
         return riveScript.reply(username, text);
     }
 

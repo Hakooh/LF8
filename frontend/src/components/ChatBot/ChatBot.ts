@@ -2,6 +2,17 @@ import axios from "axios";
 import store from "~/store";
 import { defineComponent } from "vue";
 
+function replaceUmlauts(string: string) {
+  let value;
+  value = string
+  .toLowerCase()
+  .replace(/ä/g, 'ae')
+  .replace(/ö/g, 'oe')
+  .replace(/ü/g, 'ue');;
+  return value
+}
+
+export default {
 export default defineComponent({
   name: "ChatBox",
   data: () => ({
@@ -20,7 +31,7 @@ export default defineComponent({
          author: "user",
       });
         axios
-          .get("http://localhost:8080/api/chat/send?text=" + this.message, {
+          .get("http://localhost:8080/api/chat/send?text=" + replaceUmlauts(this.message), {
             headers: {
               ...(store.state.token
                 ? { Authorization: "Bearer " + store.state.token }
@@ -30,7 +41,7 @@ export default defineComponent({
           .then((res) => {
             this.message = "";
             this.messages.push({
-              text: res.data,
+              text: (decodeURIComponent(JSON.parse(`"${res.data}"`))),
               author: "chat-bot-zoey",
             });
           })
@@ -49,4 +60,4 @@ export default defineComponent({
       this.isChatboxVisible = false;
     }
   },
-});
+};
