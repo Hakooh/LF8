@@ -1,6 +1,7 @@
+import { defineComponent } from 'vue';
 import StarRating from 'vue-star-rating';
 
-export default {
+export default defineComponent({
     components: {
         StarRating,
     },
@@ -37,4 +38,4 @@ export default {
             });
         },
     },
-}
+});

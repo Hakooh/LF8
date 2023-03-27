@@ -1,6 +1,7 @@
 import comment from './CommentItem.vue';
 import StarRating from 'vue-star-rating';
 import axios from "axios";
+import { defineComponent } from 'vue';
 
 
 const BASE_URL = 'http://localhost:8080/api/shop'
@@ -14,7 +15,7 @@ function getIdFromURL() {
 }
 
 
-export default {
+export default defineComponent({
     components: {
         comment,
         StarRating
@@ -94,4 +95,4 @@ export default {
             type: Object,
         },
     }
-}
+});

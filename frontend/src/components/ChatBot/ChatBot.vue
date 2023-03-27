@@ -1,13 +1,9 @@
 <template charset="utf-8">
-    <div class="chatbox">
-        <div class="chatbox-header">
+    <div v-if=isChatboxVisible class="chatbox" >
+        <div class="chatbox-header" @click=closeChatbox()>
             <div class="chatbox-agent">
                 <img src="../../assets/zoey_cropped.png" class="chatbox__zoey-photo">
                 <span>Chat with Zoey</span>
-            </div>
-        
-            <div class="chatbox-close">
-                <span>x</span>
             </div>
         </div>
         <div class="chat-box-list-container">
@@ -36,9 +32,18 @@
             v-model="message" 
             @keydown.enter="sendMessage"
             />
-            <button @click="sendMessage" class="chatbox-btn chatbox-btn--send" alt="Send"><img src="../../assets/send.webp" class="send-image"></button>
-        </div>
+                <button @click="sendMessage" class="chatbox-btn chatbox-btn--send" alt="Send"><img src="../../assets/send.webp" class="send-image"></button>
+            </div>
     </div>
+        <div @click="showChatbox()" v-else class="chatbox-closed">
+            <div class="chatbox-closed__header">
+                <div class="chatbox-agent">
+                    <img src="../../assets/zoey_cropped.png" class="chatbox__zoey-photo">
+                    <span>Chat with Zoey</span>
+                </div>
+        </div>
+</div>
+
 </template>
 
 <script>

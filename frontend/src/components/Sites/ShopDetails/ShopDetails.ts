@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { defineComponent } from 'vue';
 // @ts-ignore
 import StarRating from 'vue-star-rating';
 import CommentManager from '../../Comments/CommentManager.vue'
@@ -14,7 +15,7 @@ function getIdFromURL() {
     return segments[3]
 }
 // ../../../../frontend/src/assets/zoey_cropped.png
-export default {
+export default defineComponent({
     components: {
         StarRating,
         CommentManager
@@ -38,4 +39,4 @@ export default {
                 this.shops = response.data
             })
     },
-}
+});

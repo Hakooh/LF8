@@ -4,14 +4,5 @@
 </template>
 
 <script>
-import axios from 'axios'
-
-export default {
-  data() {
-    return {
-      posts: [],
-      msg: "pageNotFound"
-    }
-  },
-}
+  export { default } from "./PageNotFound";
 </script>
