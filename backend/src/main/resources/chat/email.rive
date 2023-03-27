@@ -4,7 +4,8 @@
 * <id> == anonymous => Leider kann ich dir dabei nicht behilflich sein.
 ^\u000AM\u00f6chtest du unseren Support kontaktieren? {topic=contactSupport}
 - Du bist gerade noch noch mit folgendem Account angemeldet: <id>
-^\u000ASollte dies nicht dein Account sein, bitte melde dich umgehend ab.{topic=random}
+^\u000ASollte dies nicht dein Account sein, bitte melde dich umgehend ab.
+^\u000ABei was kann ich dir noch behilflich sein?{topic=random}
 
 + [*] 
 - Bei was kann ich dir noch behilflich sein? {topic=random}
