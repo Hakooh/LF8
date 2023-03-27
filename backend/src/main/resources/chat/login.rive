@@ -1,18 +1,24 @@
 > topic confirmProblemLogin
 + [*] ja [*]
-- Wobei hast du denn ein Problem? {topic=findProblemLogin}
+- Okay, wobei hast du denn genau ein Problem? {topic=findProblemLogin}
+
++ [*] passwort [*]
+- {topic=findProblemLogin}{@passwort}
+
++ [*] email [*]
+- {topic=findProblemLogin}{@email}
 
 + [*]
-- Wobei kann ich dir denn behilflich sein? {topic=random}
+- Oh, okay. Wobei kann ich dir denn behilflich sein? {topic=random}
 
 < topic
 
 > topic findProblemLogin
 +  [*] passwort [*]
-- Hast du dein Passwort vergessen? {topic=confirmResetPassword}
+- Oh, hast du dein Passwort vergessen? {topic=confirmResetPassword}
 
 + [*] email [*]
-- Hast du deine Email-Adresse vergessen? {topic=confirmProblemEmail}
+- Oh, hast du die deinem Account zugeh\u00f6rige Email-Adresse vergessen? {topic=confirmProblemEmail}
 
 + [*]
 - Bist du sicher, dass du ein Problem beim Anmelden hast? {topic=confirmProblemLogin}

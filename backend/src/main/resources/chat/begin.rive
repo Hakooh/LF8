@@ -2,6 +2,8 @@
 
 ! var name = Zoey
 
+! local concat = newline
+
 ! sub &quot;        = "
 ! sub &apos;        = '
 ! sub &amp;         = &
@@ -23,4 +25,9 @@
 ! sub anmeldedaten  = login
 ! sub zugangsdaten  = login
 ! sub anregung      = feedback
-! sub rueckmeldung   = feedback
+! sub rueckmeldung  = feedback
+! sub hey           = hallo
+! sub moin          = hallo
+! sub hi            = hallo
+! sub username      = email
+! sub anmeldename   = email
