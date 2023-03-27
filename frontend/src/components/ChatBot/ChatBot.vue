@@ -1,4 +1,4 @@
-<template>
+<template charset="utf-8">
     <div class="chatbox">
         <div class="chatbox-header">
             <div class="chatbox-agent">
@@ -12,6 +12,12 @@
         </div>
         <div class="chat-box-list-container">
             <ul class="chatbox-conversation" id="messages" ref="messagelist">
+                <li class="chatbox-conversation__message chatbox-conversation__message--chat-bot-zoey">
+                    <div class="chatbox-message__content">
+                        <p>Hey ich bin Zoey, deine virtuelle Assistentin!</p>
+                        <p>Stelle mir gerne Fragen, wenn du Hilfe brauchst oder Feedback für uns hast 😊</p>
+                    </div>
+                </li>
                 <li class="chatbox-conversation__message"
                     v-for="(message, idx) in messages"
                     :key="idx"

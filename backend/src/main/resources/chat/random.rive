@@ -1,6 +1,16 @@
 + [*] (login|passwort|email) [*]
-- <set repeat=false> Hast du ein Problem bei der Anmeldung? {topic=confirmProblemLogin}
+- <set repeat=false> Oh nein, hast du etwa ein Problem mit deinen Anmeldedaten? \uD83D\uDE1F{topic=confirmProblemLogin}
+
++ [*]feedback[*]
+* <get firstname> == undefined => Cool, du hast Anregungen oder Feedback f\u00fcr uns? {topic=confirmFeedback}
+- Cool, hast du Anregungen oder Feedback f\u00fcr uns, <get firstname>? {topic=confirmFeedback}
+
++ [*](danke|dank)[*]
+- {topic=thanks}{@danke}
+
++ [*]hallo[*]
+- \uD83D\uDC4B
 
 + [*]
-* <get repeat> == true => <set repeat=false> Es tut mir leid, ich verstehe deine Frage nicht. Möchtest du mit dem Support sprechen?{topic=contactSupport}
-- <set repeat=true> Entschuldige, ich habe dich nicht verstanden, könntest du dein Problem anders formulieren?
+* <get repeat> == true => <set repeat=false> Entschuldige, ich verstehe deine Frage nicht. M\u00f6chtest du lieber mit unserem Support sprechen?{topic=contactSupport}
+- <set repeat=true> Sorry, ich habe dich nicht verstanden, k\u00f6nntest du dein Problem anders formulieren?

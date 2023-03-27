@@ -1,4 +1,8 @@
+! version = 2.00
+
 ! var name = Zoey
+
+! local concat = newline
 
 ! sub &quot;        = "
 ! sub &apos;        = '
@@ -13,8 +17,17 @@
 ! sub yo            = ja
 ! sub ne            = nein
 ! sub nope          = nein
+! sub noe            = nein
 ! sub mail          = email
 ! sub e-mail        = email
 ! sub anmelden      = login
 ! sub anmeldung     = login
 ! sub anmeldedaten  = login
+! sub zugangsdaten  = login
+! sub anregung      = feedback
+! sub rueckmeldung  = feedback
+! sub hey           = hallo
+! sub moin          = hallo
+! sub hi            = hallo
+! sub username      = email
+! sub anmeldename   = email

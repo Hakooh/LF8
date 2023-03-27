@@ -1,7 +1,8 @@
 
 > topic contactSupport
 + [*] ja [*]
-- Okay, hier ist unsere Support-Email-Adresse: support@teamtwo.de {topic=random}
+- Okay, hier ist unsere Support-Email-Adresse: support@teamtwo.de
+^\u000AWenn ich dir bei noch etwas helfen kann, dann sag Bescheid!{topic=random}
 
 + [*] 
 - Bei was kann ich dir noch behilflich sein? {topic=random}
