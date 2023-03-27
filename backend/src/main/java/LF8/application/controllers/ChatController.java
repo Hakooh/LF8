@@ -37,7 +37,6 @@ public class ChatController {
     public String getReply(@RequestParam String text, @RequestHeader(value = "Authorization", required = false )  String token) {
         String username = getBotUser(token);
         try {
-            //TODO: static replace of ä -> ae etc
             text = URLEncoder.encode(text.toLowerCase(), "UTF-8");
             log.info(text);
         } catch (UnsupportedEncodingException e) {
@@ -57,7 +56,7 @@ public class ChatController {
             }
             return email;
         } catch (Exception e) {
-            log.info("Anonymous user is using chat");
+            log.info("Anonymous user is now using chat");
             return "anonymous";
         }
     }
