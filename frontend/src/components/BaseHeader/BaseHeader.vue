@@ -20,7 +20,6 @@ export { default } from "./BaseHeader";
 <style lang="css">
 .el-menu-demo{
   padding-left:4%;
-  background: #449199;
 }
 
 .el-menu-darkmode {
